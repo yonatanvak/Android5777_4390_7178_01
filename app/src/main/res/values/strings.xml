@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Android5777_4390_7178_01</string>
+    <string name="title_activity_ff">ff</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
 </resources>
