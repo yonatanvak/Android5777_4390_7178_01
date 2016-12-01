@@ -24,7 +24,7 @@ public class Activities_List extends AppCompatActivity {
     private long IDbusines;
 
     public Activities_List(Activity_type types, String country, Calendar activityStart, Calendar activityEnd,
-                           int price, String description, long IDbusines) {
+                           int price, String description, long IDbusiness) {
         this.types = types;
         this.country = country;
         this.activityStart = activityStart;
@@ -33,6 +33,7 @@ public class Activities_List extends AppCompatActivity {
         this.description = description;
         this.IDbusines = IDbusines;
     }
+    public Activities_List(){};
 
     public Activity_type getTypes() {
         return types;

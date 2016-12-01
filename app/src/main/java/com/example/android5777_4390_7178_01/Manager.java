@@ -2,6 +2,7 @@ package com.example.android5777_4390_7178_01;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.content.Intent;
 
 public class Manager extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class Manager extends AppCompatActivity {
         this.name = name;
         this.password = password;
     }
+    public Manager(){};
 
     public long getUserNumber() {
         return userNumber;

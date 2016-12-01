@@ -17,7 +17,10 @@
         </activity>
         <activity android:name=".screen1" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Manager"></activity>
+        <activity android:name=".Business" />
+        <activity android:name=".Activities_List" />
+        <activity android:name=".Manager" />
+
     </application>
 
 </manifest>

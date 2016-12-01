@@ -3,8 +3,6 @@ package com.example.android5777_4390_7178_01;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.android5777_4390_7178_01.R;
-
 public class Business extends AppCompatActivity {
 
     @Override
@@ -23,7 +21,7 @@ public class Business extends AppCompatActivity {
     private String Link;
 
     public Business(long IDbusines, String nameBusines, String ad_street, String ad_country,
-                           String ad_city, int phone, String email, String link) {
+                    String ad_city, int phone, String email, String link) {
         this.IDbusines = IDbusines;
         this.nameBusines = nameBusines;
         Ad_street = ad_street;
@@ -33,6 +31,7 @@ public class Business extends AppCompatActivity {
         Email = email;
         Link = link;
     }
+ public Business(){}
 
     public long getIDbusines() {
         return IDbusines;
