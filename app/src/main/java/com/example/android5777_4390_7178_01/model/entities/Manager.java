@@ -1,8 +1,10 @@
-package com.example.android5777_4390_7178_01;
+package com.example.android5777_4390_7178_01.model.entities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
+
+import com.example.android5777_4390_7178_01.R;
 
 public class Manager extends AppCompatActivity {
 
@@ -15,6 +17,7 @@ public class Manager extends AppCompatActivity {
     private long userNumber;
     private String name;
     private long password;
+
 
     public Manager(long userNumber, String name, long password) {
         this.userNumber = userNumber;

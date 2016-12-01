@@ -1,4 +1,4 @@
-package com.example.android5777_4390_7178_01;
+package com.example.android5777_4390_7178_01.model.entities;
 
 import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
