@@ -17,7 +17,13 @@
         </activity>
         <activity android:name=".screen1" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".model.entities.Manager"></activity>
+        <activity android:name=".model.entities.Manager" />
+
+        <provider
+            android:name=".model.backend.CustomContentProvider"
+            android:authorities="com.example.android5777_4390_7178_01"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>
