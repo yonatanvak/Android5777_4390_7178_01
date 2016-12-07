@@ -25,6 +25,9 @@ public interface IDSManager {
     public ArrayList<Business> getBusinessList();
     public ArrayList<Activities_List> getActivityList();
 
+    Boolean checkChanges();
+    void reportChanges();
+
     ///////////////////----seif h--/////////////
 
 }

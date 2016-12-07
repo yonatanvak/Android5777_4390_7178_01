@@ -1,4 +1,4 @@
-package com.example.android5777_4390_7178_01.model.backend;
+package com.example.android5777_4390_7178_01.model.datasource;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
