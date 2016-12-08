@@ -1,6 +1,6 @@
 package com.example.android5777_4390_7178_01.model.datasource;
 
-import android.content.Context;
+import android.content.ContentValues;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.entities.Activities_List;
@@ -11,49 +11,49 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by יונתן on 01/12/2016.
+ * Created by יונתן on 08/12/2016.
  */
 
 public class ListDsManager implements IDSManager {
 
-    public ListDsManager(Context context) {}
-
-    final ArrayList<Manager> managerList = new ArrayList<Manager>();
-    final ArrayList<Business> businessList = new ArrayList<Business>();
-    final ArrayList<Activities_List> activityList = new ArrayList<Activities_List>();
-
 
     @Override
-    public ArrayList<Activities_List> getActivityList() {return activityList;}
+    public void addManager(ContentValues contant_manager) throws IOException {
 
-    @Override
-    public ArrayList<Business> getBusinessList() {return businessList;}
-
-    @Override
-    public ArrayList<Manager> getManagerList() {return managerList;}
-
-    @Override
-    public void addActivity(Activities_List activities) throws IOException {
-        activityList.add(activities);
     }
 
     @Override
-    public void addBusiness(Business business) throws IOException {
-        businessList.add(business);
+    public void addBusiness(ContentValues contant_business) throws IOException {
+
     }
 
     @Override
-    public void addManager(Manager manager) {
-        managerList.add(manager);
+    public void addActivity(ContentValues contant_activities) throws IOException {
+
     }
 
     @Override
-    public void reportChanges() {
+    public ArrayList<Manager> getManagerList() {
+        return null;
+    }
 
+    @Override
+    public ArrayList<Business> getBusinessList() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Activities_List> getActivityList() {
+        return null;
     }
 
     @Override
     public Boolean checkChanges() {
         return null;
+    }
+
+    @Override
+    public void reportChanges() {
+
     }
 }

@@ -1,5 +1,7 @@
 package com.example.android5777_4390_7178_01.model.backend;
 
+import android.content.ContentValues;
+
 import com.example.android5777_4390_7178_01.model.entities.Activities_List;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
@@ -17,9 +19,9 @@ public interface IDSManager {
     final ArrayList<Business> businessList = new ArrayList<Business>();
     final ArrayList<Activities_List> activityList = new ArrayList<Activities_List>();
 
-    void addManager(Manager manager) ;
-    void addBusiness(Business business) throws IOException;
-    void addActivity(Activities_List activities) throws IOException;
+    void addManager(ContentValues contant_manager);
+    void addBusiness(ContentValues contant_business);
+    void addActivity(ContentValues contant_activities);
 
     public ArrayList<Manager> getManagerList();
     public ArrayList<Business> getBusinessList();

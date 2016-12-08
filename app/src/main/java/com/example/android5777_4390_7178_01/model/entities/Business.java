@@ -20,10 +20,10 @@ public class Business extends AppCompatActivity {
     private String Ad_city;
     private int phone;
     private String Email;
-    private String Link;
+    private String webSite;
 
     public Business(long IDbusines, String nameBusines, String ad_street, String ad_country,
-                    String ad_city, int phone, String email, String link) {
+                    String ad_city, int phone, String email, String website) {
         this.IDbusines = IDbusines;
         this.nameBusines = nameBusines;
         Ad_street = ad_street;
@@ -31,7 +31,7 @@ public class Business extends AppCompatActivity {
         Ad_city = ad_city;
         this.phone = phone;
         Email = email;
-        Link = link;
+        webSite = website;
     }
  public Business(){}
 
@@ -91,12 +91,12 @@ public class Business extends AppCompatActivity {
         Email = email;
     }
 
-    public String getLink() {
-        return Link;
+    public String getwebSite() {
+        return webSite;
     }
 
-    public void setLink(String link) {
-        Link = link;
+    public void setwebSite(String link) {
+        webSite = link;
     }
 
 
