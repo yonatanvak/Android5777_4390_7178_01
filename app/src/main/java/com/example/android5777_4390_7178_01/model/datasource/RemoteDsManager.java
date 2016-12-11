@@ -16,17 +16,17 @@ import java.util.ArrayList;
 
 public class RemoteDsManager implements IDSManager{
     @Override
-    public void addManager(ContentValues contant_manager) throws IOException {
+    public void addManager(ContentValues contant_manager){
 
     }
 
     @Override
-    public void addBusiness(ContentValues contant_business) throws IOException {
+    public void addBusiness(ContentValues contant_business){
 
     }
 
     @Override
-    public void addActivity(ContentValues contant_activities) throws IOException {
+    public void addActivity(ContentValues contant_activities){
 
     }
 

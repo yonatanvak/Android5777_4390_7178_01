@@ -5,12 +5,9 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
-
-import java.util.HashMap;
+import com.example.android5777_4390_7178_01.model.backend.ManagerFactory;
 
 public class CustomContentProvider extends ContentProvider {
     public CustomContentProvider() {

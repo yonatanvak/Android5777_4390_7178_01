@@ -1,9 +1,11 @@
-package com.example.android5777_4390_7178_01.model.datasource;
+package com.example.android5777_4390_7178_01.model.backend;
 
 import android.content.ContentValues;
 import android.content.Context;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
+import com.example.android5777_4390_7178_01.model.datasource.ListDsManager;
+import com.example.android5777_4390_7178_01.model.datasource.RemoteDsManager;
 import com.example.android5777_4390_7178_01.model.entities.Activities_List;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
