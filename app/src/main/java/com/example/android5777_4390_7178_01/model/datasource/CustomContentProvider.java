@@ -15,8 +15,8 @@ public class CustomContentProvider extends ContentProvider {
 
     public static IDSManager dsManager = ManagerFactory.getDSManger("ListDsManager");
 
-    static final String PROVIDER_NAME = "com.example.android5777_4390_7178_01.model.datasource";
-  //  static final String URL = "content://" + PROVIDER_NAME + "/cte";
+    static final String PROVIDER_NAME = "com.example.android5777_4390_7178_01.model.entities";
+    //  static final String URL = "content://" + PROVIDER_NAME + "/cte";
     static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/manager");
     static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
     static final Uri ACTIVITIES_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/activities");
@@ -25,7 +25,7 @@ public class CustomContentProvider extends ContentProvider {
     static final int URI_BUSINESS = 2;
     static final int URI_ACTIVITIES = 3;
 
-    static final String user_name = "user_name";
+   /* static final String user_name = "user_name";
     static final String user_number = "user_number";
     static final String user_password = "user_password";
 
@@ -44,9 +44,9 @@ public class CustomContentProvider extends ContentProvider {
     static final String activity_TEnd = "activity_TEnd";
     static final String activity_price = "activity_price";
     static final String activity_description = "activity_description";
-    static final String activity_id = "activity_id";
+    static final String activity_id = "activity_id";*/
 
-   // private static HashMap <String , String> valuse;
+    // private static HashMap <String , String> valuse;
 
     static final UriMatcher uriMatcher;
     static {
@@ -64,20 +64,20 @@ public class CustomContentProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-   switch (uriMatcher.match(uri))
-   {
-       case URI_MANAGER:
-           dsManager.addManager(values);
-           break;
-       case URI_BUSINESS:
-           dsManager.addBusiness(values);
-           break;
-       case URI_ACTIVITIES:
-           dsManager.addActivity(values);
-           break;
-   }
+        switch (uriMatcher.match(uri))
+        {
+            case URI_MANAGER:
+                dsManager.addManager(values);
+                break;
+            case URI_BUSINESS:
+                dsManager.addBusiness(values);
+                break;
+            case URI_ACTIVITIES:
+                dsManager.addActivity(values);
+                break;
+        }
         // TODO: Implement this to handle requests to insert a new row.
-     //   throw new UnsupportedOperationException("Not yet implemented");
+        //   throw new UnsupportedOperationException("Not yet implemented");
         return null;
     }
 
@@ -91,7 +91,7 @@ public class CustomContentProvider extends ContentProvider {
             case URI_MANAGER:
         }*/
         // TODO: Implement this to handle query requests from clients.
-       throw new UnsupportedOperationException("Not yet implemented");
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     @Override
@@ -111,7 +111,7 @@ public class CustomContentProvider extends ContentProvider {
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
         // TODO: Implement this to handle requests to update one or more rows.
-    //    throw new UnsupportedOperationException("Not yet implemented");
+        //    throw new UnsupportedOperationException("Not yet implemented");
         return 0;
     }
 }

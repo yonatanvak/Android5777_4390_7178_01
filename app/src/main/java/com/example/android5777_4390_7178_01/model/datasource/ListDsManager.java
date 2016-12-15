@@ -17,18 +17,22 @@ import java.util.ArrayList;
 public class ListDsManager implements IDSManager {
 
 
+    final ArrayList<Manager> managerList = new ArrayList<Manager>();
+    final ArrayList<Business> businessList = new ArrayList<Business>();
+    final ArrayList<Activities_List> activityList = new ArrayList<Activities_List>();
+
     @Override
-    public void addManager(ContentValues contant_manager) throws IOException {
+    public void addManager(ContentValues contant_manager)  {
 
     }
 
     @Override
-    public void addBusiness(ContentValues contant_business) throws IOException {
+    public void addBusiness(ContentValues contant_business){
 
     }
 
     @Override
-    public void addActivity(ContentValues contant_activities) throws IOException {
+    public void addActivity(ContentValues contant_activities) {
 
     }
 
