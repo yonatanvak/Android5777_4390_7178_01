@@ -13,84 +13,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:layout_below="@+id/editText4"
-        android:layout_alignRight="@+id/editText4"
-        android:layout_alignEnd="@+id/editText4"
-        android:id="@+id/editText5"
-        android:text="Phone" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:layout_below="@+id/editText5"
-        android:layout_alignRight="@+id/editText5"
-        android:layout_alignEnd="@+id/editText5"
-        android:id="@+id/editText6"
+        android:layout_below="@+id/etPhone"
+        android:layout_alignRight="@+id/etPhone"
+        android:layout_alignEnd="@+id/etPhone"
+        android:id="@+id/etEmail"
         android:text="E-mail" />
-
-    <EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="textPersonName"
-    android:text="Business name"
-    android:ems="10"
-    android:layout_marginTop="57dp"
-    android:id="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/editText8"
-        android:text="Country"
-        android:layout_below="@+id/editText6"
-        android:layout_alignLeft="@+id/editText6"
-        android:layout_alignStart="@+id/editText6" />
-
-    <EditText
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/editText10"
-        android:text="Street"
-        android:layout_alignBaseline="@+id/editText9"
-        android:layout_alignBottom="@+id/editText9"
-        android:layout_toRightOf="@+id/editText8"
-        android:layout_toEndOf="@+id/editText8"
-        android:layout_marginLeft="46dp"
-        android:layout_marginStart="46dp" />
-
-    <EditText
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/editText9"
-        android:text="City"
-        android:layout_alignBaseline="@+id/editText8"
-        android:layout_alignBottom="@+id/editText8"
-        android:layout_toRightOf="@+id/editText8"
-        android:layout_toEndOf="@+id/editText8" />
-
-    <TextView
-        android:text="Address:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:layout_alignBaseline="@+id/editText8"
-        android:layout_alignBottom="@+id/editText8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="14sp" />
 
     <RadioButton
         android:text="link to our website"
@@ -110,10 +39,10 @@
         android:inputType="textPersonName"
         android:text="ID business"
         android:ems="10"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:id="@+id/etIdBusiness"
+        android:layout_below="@+id/etBusinessName"
+        android:layout_alignLeft="@+id/etBusinessName"
+        android:layout_alignStart="@+id/etBusinessName" />
 
     <TextView
         android:text="Business information"
@@ -127,5 +56,87 @@
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/radioButton"
         android:layout_alignStart="@+id/radioButton" />
+
+    <EditText
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/etStreet"
+        android:text="Street"
+        android:layout_below="@+id/etEmail"
+        android:layout_toRightOf="@+id/etCity"
+        android:layout_toEndOf="@+id/etCity"
+        android:layout_marginTop="44dp" />
+
+    <EditText
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/etCity"
+        android:text="City"
+        android:layout_alignBaseline="@+id/etStreet"
+        android:layout_alignBottom="@+id/etStreet"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false" />
+
+    <EditText
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/etCountry"
+        android:text="Country"
+        android:layout_alignBaseline="@+id/etCity"
+        android:layout_alignBottom="@+id/etCity"
+        android:layout_toLeftOf="@+id/etCity"
+        android:layout_toStartOf="@+id/etCity"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp" />
+
+    <EditText
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:inputType="textPersonName"
+    android:text="Business name"
+    android:ems="10"
+    android:layout_marginTop="25dp"
+    android:id="@+id/etBusinessName"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/etPhone"
+        android:text="Phone"
+        android:layout_below="@+id/etIdBusiness"
+        android:layout_alignLeft="@+id/etIdBusiness"
+        android:layout_alignStart="@+id/etIdBusiness" />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/radioButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Address:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="18sp"
+        android:layout_above="@+id/etCity"
+        android:layout_alignLeft="@+id/etEmail"
+        android:layout_alignStart="@+id/etEmail"
+        android:fontFamily="casual"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false" />
 
 </RelativeLayout>

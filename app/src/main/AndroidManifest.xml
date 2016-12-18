@@ -25,6 +25,9 @@
             android:enabled="true"
             android:exported="true" />
 
+        <activity android:name=".model.entities.Attractions" />
+        <activity android:name=".Controller.Registery" />
+        <activity android:name=".Controller.AddBusiness"></activity>
     </application>
 
 </manifest>

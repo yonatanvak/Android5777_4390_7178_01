@@ -4,6 +4,7 @@ import android.content.ContentValues;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.entities.Activities_List;
+import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
@@ -19,20 +20,22 @@ public class ListDsManager implements IDSManager {
 
     final ArrayList<Manager> managerList = new ArrayList<Manager>();
     final ArrayList<Business> businessList = new ArrayList<Business>();
-    final ArrayList<Activities_List> activityList = new ArrayList<Activities_List>();
+    final ArrayList<Attractions> attractionses = new ArrayList< Attractions>();
 
     @Override
     public void addManager(ContentValues contant_manager)  {
-
+        managerList.add(new Manager(contant_manager.getAsLong("password"),
+                contant_manager.getAsString("userName"),contant_manager.getAsLong("userNumber")));
     }
 
     @Override
     public void addBusiness(ContentValues contant_business){
-
+       businessList.add(new Business(contant_manager.getAsLong("password"),
+                contant_manager.getAsString("userName"),contant_manager.getAsLong("userNumber")));
     }
 
     @Override
-    public void addActivity(ContentValues contant_activities) {
+    public void addAttraction(ContentValues contant_attraction) {
 
     }
 
@@ -47,9 +50,10 @@ public class ListDsManager implements IDSManager {
     }
 
     @Override
-    public ArrayList<Activities_List> getActivityList() {
+    public ArrayList<Attractions> getAttraction() {
         return null;
     }
+
 
     @Override
     public Boolean checkChanges() {

@@ -17,13 +17,13 @@ public class CustomContentProvider extends ContentProvider {
 
     static final String PROVIDER_NAME = "com.example.android5777_4390_7178_01.model.entities";
     //  static final String URL = "content://" + PROVIDER_NAME + "/cte";
-    static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/manager");
+    public static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/manager");
     static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
-    static final Uri ACTIVITIES_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/activities");
+    static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/attraction");
 
     static final int URI_MANAGER = 1;
     static final int URI_BUSINESS = 2;
-    static final int URI_ACTIVITIES = 3;
+    static final int URI_ATTRACTIONS = 3;
 
    /* static final String user_name = "user_name";
     static final String user_number = "user_number";
@@ -53,7 +53,7 @@ public class CustomContentProvider extends ContentProvider {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(PROVIDER_NAME,"manager",URI_MANAGER);
         uriMatcher.addURI(PROVIDER_NAME,"business",URI_BUSINESS);
-        uriMatcher.addURI(PROVIDER_NAME,"activities",URI_ACTIVITIES);
+        uriMatcher.addURI(PROVIDER_NAME,"activities",URI_ATTRACTIONS);
     }
 
     @Override
@@ -72,8 +72,8 @@ public class CustomContentProvider extends ContentProvider {
             case URI_BUSINESS:
                 dsManager.addBusiness(values);
                 break;
-            case URI_ACTIVITIES:
-                dsManager.addActivity(values);
+            case URI_ATTRACTIONS:
+                dsManager.addAttraction(values);
                 break;
         }
         // TODO: Implement this to handle requests to insert a new row.

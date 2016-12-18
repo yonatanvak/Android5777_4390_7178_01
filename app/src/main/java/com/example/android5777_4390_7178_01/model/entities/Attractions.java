@@ -7,14 +7,15 @@ import android.os.Bundle;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.Activity_type;
 
-public class Activities_List extends AppCompatActivity {
+
+public class Attractions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
-    }
 
+    }
     private Activity_type types;
     private String country;
     private Calendar activityStart;
@@ -23,7 +24,7 @@ public class Activities_List extends AppCompatActivity {
     private String description;
     private long IDbusines;
 
-    public Activities_List(Activity_type types, String country, Calendar activityStart, Calendar activityEnd,
+    public  Attractions(Activity_type types, String country, Calendar activityStart, Calendar activityEnd,
                            int price, String description, long IDbusiness) {
         this.types = types;
         this.country = country;
@@ -33,7 +34,7 @@ public class Activities_List extends AppCompatActivity {
         this.description = description;
         this.IDbusines = IDbusines;
     }
-    public Activities_List(){};
+    public  Attractions(){};
 
     public Activity_type getTypes() {
         return types;
@@ -90,6 +91,4 @@ public class Activities_List extends AppCompatActivity {
     public void setIDbusines(long IDbusines) {
         this.IDbusines = IDbusines;
     }
-
-
 }

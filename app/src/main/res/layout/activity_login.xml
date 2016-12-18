@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/editTextUser"
+        android:id="@+id/etUser"
         android:hint="User name"
         android:fontFamily="casual"
         android:textStyle="normal|bold"

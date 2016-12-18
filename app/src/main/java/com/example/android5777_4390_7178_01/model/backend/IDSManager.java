@@ -3,6 +3,7 @@ package com.example.android5777_4390_7178_01.model.backend;
 import android.content.ContentValues;
 
 import com.example.android5777_4390_7178_01.model.entities.Activities_List;
+import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
@@ -17,15 +18,15 @@ public interface IDSManager {
 
     final ArrayList<Manager> managerList = new ArrayList<Manager>();
     final ArrayList<Business> businessList = new ArrayList<Business>();
-    final ArrayList<Activities_List> activityList = new ArrayList<Activities_List>();
+    final ArrayList<Attractions> attractions = new ArrayList<Attractions>();
 
     void addManager(ContentValues contant_manager);
     void addBusiness(ContentValues contant_business);
-    void addActivity(ContentValues contant_activities);
+    void addAttraction(ContentValues contant_attraction);
 
     public ArrayList<Manager> getManagerList();
     public ArrayList<Business> getBusinessList();
-    public ArrayList<Activities_List> getActivityList();
+    public ArrayList<Attractions> getAttraction();
 
     Boolean checkChanges();
     void reportChanges();

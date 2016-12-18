@@ -1,11 +1,16 @@
 package com.example.android5777_4390_7178_01;
 
+import android.content.ContentValues;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
 
 public class login extends AppCompatActivity {
 
@@ -18,14 +23,24 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                EditText edit = (EditText) findViewById(R.id.editTextUser);
+                EditText manegerUser = (EditText) findViewById(R.id.etUser);
 
-                if (edit.getText().toString().equals("בניה")) {
+                if (manegerUser.getText().toString().equals("בניה")) {
                     Intent intent = new Intent(login.this, screen1.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(login.this, "מורדוך סמרטוט !!", Toast.LENGTH_LONG).show();
                 }
+                final ContentValues maneger = new ContentValues();
+                maneger.put("nameKey", manegerUser.toString());
+
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        getContentResolver().insert(CustomContentProvider.MANAGER_CONTENT_URL, maneger);
+                        return null;
+                    }
+                };
             }
         }
         );

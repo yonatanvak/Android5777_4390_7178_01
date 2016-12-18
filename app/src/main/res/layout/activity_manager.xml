@@ -12,14 +12,29 @@
     tools:context="com.example.android5777_4390_7178_01.model.entities.Manager">
 
 
+    <Button
+        android:text="Sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSign"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/etPassword"
+        android:layout_centerHorizontal="true"
+        android:onClick="buttonSign"
+        android:layout_marginTop="44dp" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="User name"
         android:ems="10"
-        android:layout_marginTop="55dp"
-        android:id="@+id/editText"
+        android:layout_marginTop="96dp"
+        android:id="@+id/etBusinessName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -27,35 +42,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="User number"
-        android:ems="10"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="41dp"
-        android:id="@+id/editText2" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="Password"
         android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/editText3" />
+        android:id="@+id/etPassword"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/etBusinessName"
+        android:layout_alignLeft="@+id/etBusinessName"
+        android:layout_alignStart="@+id/etBusinessName" />
 
-    <Button
-        android:text="Sign"
-        android:layout_width="wrap_content"
+    <TextView
+        android:text="Registery"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_marginTop="24dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:typeface="monospace"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textSize="24sp"
         android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:textColor="@android:color/background_light"
-        android:layout_below="@+id/editText3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp" />
+        android:textColor="@android:color/holo_orange_dark" />
 </RelativeLayout>

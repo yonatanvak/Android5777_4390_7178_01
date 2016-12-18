@@ -14,7 +14,7 @@ public class Manager extends AppCompatActivity {
         setContentView(R.layout.activity_manager);
     }
 
-    private long userNumber;
+    public static long userNumber;
     private String name;
     private long password;
 
@@ -49,4 +49,6 @@ public class Manager extends AppCompatActivity {
     public void setPassword(long password) {
         this.password = password;
     }
+
+
 }

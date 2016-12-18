@@ -4,6 +4,7 @@ import android.content.ContentValues;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.entities.Activities_List;
+import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
@@ -26,7 +27,7 @@ public class RemoteDsManager implements IDSManager{
     }
 
     @Override
-    public void addActivity(ContentValues contant_activities){
+    public void addAttraction(ContentValues contant_attraction) {
 
     }
 
@@ -41,7 +42,7 @@ public class RemoteDsManager implements IDSManager{
     }
 
     @Override
-    public ArrayList<Activities_List> getActivityList() {
+    public ArrayList<Attractions> getAttraction() {
         return null;
     }
 
