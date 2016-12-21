@@ -22,8 +22,8 @@ public class Business extends AppCompatActivity {
     private String Email;
     private String webSite;
 
-    public Business(long IDbusines, String nameBusines, String ad_street, String ad_country,
-                    String ad_city, int phone, String email, String website) {
+    public Business(String IDbusines, Long nameBusines, String ad_street, String ad_country,
+                    Integer ad_city, String phone, String email, String website) {
         this.IDbusines = IDbusines;
         this.nameBusines = nameBusines;
         Ad_street = ad_street;

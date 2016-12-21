@@ -30,12 +30,14 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addBusiness(ContentValues contant_business){
-       businessList.add(new Business(contant_manager.getAsLong("password"),
-                contant_manager.getAsString("userName"),contant_manager.getAsLong("userNumber")));
+       businessList.add(new Business(contant_business.getAsString("businessName"),contant_business.getAsLong("IdBusiness"),
+               contant_business.getAsString("WebSite"), contant_business.getAsString("Email"),contant_business.getAsInteger("Phone"),
+               contant_business.getAsString("AStreet"), contant_business.getAsString("ACity"),contant_business.getAsString("ACountry")));
     }
 
     @Override
     public void addAttraction(ContentValues contant_attraction) {
+
 
     }
 

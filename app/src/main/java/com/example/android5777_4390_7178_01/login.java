@@ -26,7 +26,7 @@ public class login extends AppCompatActivity {
                 EditText manegerUser = (EditText) findViewById(R.id.etUser);
 
                 if (manegerUser.getText().toString().equals("בניה")) {
-                    Intent intent = new Intent(login.this, screen1.class);
+                    Intent intent = new Intent(login.this, MainActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(login.this, "מורדוך סמרטוט !!", Toast.LENGTH_LONG).show();
@@ -64,7 +64,7 @@ public class login extends AppCompatActivity {
 
     public void buttonSign (View view)
     {
-        Intent sign = new Intent(login.this , screen1.class);
+        Intent sign = new Intent(login.this , MainActivity.class);
         startActivity(sign);
     }
 }

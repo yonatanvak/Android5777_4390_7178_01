@@ -18,8 +18,8 @@ public class CustomContentProvider extends ContentProvider {
     static final String PROVIDER_NAME = "com.example.android5777_4390_7178_01.model.entities";
     //  static final String URL = "content://" + PROVIDER_NAME + "/cte";
     public static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/manager");
-    static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
-    static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/attraction");
+    public static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
+    public static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/attraction");
 
     static final int URI_MANAGER = 1;
     static final int URI_BUSINESS = 2;
