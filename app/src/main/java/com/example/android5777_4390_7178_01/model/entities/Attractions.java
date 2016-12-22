@@ -1,21 +1,15 @@
 package com.example.android5777_4390_7178_01.model.entities;
 
 import android.icu.util.Calendar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
-import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.Activity_type;
 
+/**
+ * Created by יונתן on 22/12/2016.
+ */
 
-public class Attractions extends AppCompatActivity {
+public class Attractions {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attractions);
-
-    }
     private Activity_type types;
     private String country;
     private Calendar activityStart;
@@ -24,8 +18,8 @@ public class Attractions extends AppCompatActivity {
     private String description;
     private long IDbusines;
 
-    public  Attractions(String types, Long country, String activityStart, Integer activityEnd,
-                        String price, String description, String IDbusiness) {
+    public  Attractions(Activity_type types, String country, Calendar activityStart, Calendar activityEnd,
+                        int price, String description, Long IDbusiness) {
         this.types = types;
         this.country = country;
         this.activityStart = activityStart;

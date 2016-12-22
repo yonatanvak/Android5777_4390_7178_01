@@ -4,10 +4,17 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.net.Uri;
+import android.util.Log;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.backend.ManagerFactory;
+import com.example.android5777_4390_7178_01.model.entities.Attractions;
+import com.example.android5777_4390_7178_01.model.entities.Business;
+import com.example.android5777_4390_7178_01.model.entities.Manager;
+
+import java.util.ArrayList;
 
 public class CustomContentProvider extends ContentProvider {
     public CustomContentProvider() {
@@ -20,6 +27,9 @@ public class CustomContentProvider extends ContentProvider {
     public static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/manager");
     public static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
     public static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/attraction");
+
+    public static final String TAG= "enterTaimentContent";
+
 
     static final int URI_MANAGER = 1;
     static final int URI_BUSINESS = 2;
@@ -85,13 +95,47 @@ public class CustomContentProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
-     /*Cursor result = null;
-        switch (uriMatcher.match(uri))
-        {
-            case URI_MANAGER:
-        }*/
-        // TODO: Implement this to handle query requests from clients.
-        throw new UnsupportedOperationException("Not yet implemented");
+        try {
+            int uriCode = uriMatcher.match(uri);
+            switch (uriCode) {
+                case 1: // users
+                    ArrayList<Manager> users = dsManager.getManagerList();
+                    MatrixCursor userMatrix = new MatrixCursor(new String[]{"name", "password", "numberUser"});
+                    for (Manager user : users) {
+                        userMatrix.addRow(new Object[]{user.getName(), user.getPassword(), user.getUserNumber()});
+                    }
+                    return userMatrix;
+
+
+                case 2: // business
+                    ArrayList<Business> businesses = dsManager.getBusinessList();
+                    //        Business business = new Business(contentBusiness.getAsInteger("ID"), contentBusiness.getAsString("CompanyName"), contentBusiness.getAsString("Address"), contentBusiness.getAsString("Mail"), contentBusiness.getAsString("PhoneNumber"), contentBusiness.getAsInteger("UserId"));
+
+                    MatrixCursor businessMatrix = new MatrixCursor(new String[]{"IdBusiness", "businessName", "AdStreet","Adcountry","AdCity",
+                            "phoneNumber", "Email","WebSite"});
+                    for (Business business : businesses) {
+                        businessMatrix.addRow(new Object[]{business.getIDbusines(), business.getNameBusines(), business.getAd_street(),
+                                business.getAd_country(), business.getAd_city(),business.getEmail(),business.getPhone(),business.getwebSite()});
+                    }
+                    return businessMatrix;
+
+
+                case 3: // attraction
+                    ArrayList<Attractions> attractions = dsManager.getAttraction();
+                    MatrixCursor AttractionMatrix = new MatrixCursor(new String[]{"IDbusines", "type","country", "activiytStart","activiytEnd", "description", "price"});
+                    for (Attractions attraction : attractions) {
+                        AttractionMatrix.addRow(new Object[]{attraction.getIDbusines(), attraction.getTypes(), attraction.getCountry(), attraction.getActivityStart(),
+                                attraction.getActivityEnd(), attraction.getDescription(), attraction.getPrice()});
+                    }
+
+                    return AttractionMatrix;
+                default:
+                    throw new IllegalArgumentException("invalid query, no such path.");
+            }
+        } catch (Exception ex) {
+            Log.d(TAG, ex.getMessage());
+            return null;
+        }
     }
 
     @Override

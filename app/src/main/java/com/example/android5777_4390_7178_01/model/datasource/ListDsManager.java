@@ -3,12 +3,10 @@ package com.example.android5777_4390_7178_01.model.datasource;
 import android.content.ContentValues;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
-import com.example.android5777_4390_7178_01.model.entities.Activities_List;
 import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -30,16 +28,18 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addBusiness(ContentValues contant_business){
-       businessList.add(new Business(contant_business.getAsString("businessName"),contant_business.getAsLong("IdBusiness"),
-               contant_business.getAsString("WebSite"), contant_business.getAsString("Email"),contant_business.getAsInteger("Phone"),
-               contant_business.getAsString("AStreet"), contant_business.getAsString("ACity"),contant_business.getAsString("ACountry")));
+       businessList.add(new Business(contant_business.getAsLong("IdBusiness"),contant_business.getAsString("businessName"),
+               contant_business.getAsString("AStreet"),contant_business.getAsString("ACountry"), contant_business.getAsString("ACity"),
+               contant_business.getAsInteger("Phone"),contant_business.getAsString("Email"),contant_business.getAsString("WebSite")));
     }
 
     @Override
     public void addAttraction(ContentValues contant_attraction) {
-        attractionsesList.add(new Attractions(contant_attraction.getAsString("description"),contant_attraction.getAsLong("idBussines"),
-                contant_attraction.getAsString("country"),contant_attraction.getAsInteger("price"),
-                contant_attraction.getAsString("startDate"), contant_attraction.getAsString("endDate"), contant_attraction.getAsString("type")));
+     //   attractionsesList.add(new Attractions(contant_attraction.getAsString("type"),contant_attraction.getAsString("country")
+           //     ,contant_attraction.get("startDate"), contant_attraction.get("endDate")
+           //     ,contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
+           //     contant_attraction.getAsLong("idBussines")
+     //           ));
     }
 
     @Override

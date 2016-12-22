@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login">
+        <activity android:name=".Controller.Registery">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +24,7 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".model.entities.Attractions" />
-        <activity android:name=".Controller.Registery" />
+        <activity android:name=".login" />
         <activity android:name=".Controller.AddBusiness" />
         <activity android:name=".Controller.AddAttraction"></activity>
     </application>

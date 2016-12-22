@@ -18,14 +18,14 @@ import java.util.ArrayList;
  */
 
 public class ManagerFactory {
-    // static IDSManager instance = null;
+     static IDSManager instance = null;
 
-    //  public static String mode = "ListDsManager";
+      public static String mode = "ListDsManager";
 
     public final static IDSManager getDSManger(String mode) {
         IDSManager DSManager;
 
-        switch (mode) {
+       /* switch (mode) {
             case "ListDsManager":
                 DSManager = new ListDsManager();
                 break;
@@ -35,13 +35,13 @@ public class ManagerFactory {
             default:
                 DSManager = null;
         }
-        return DSManager;
+        return DSManager;*/
 
-       /* if (mode == "RemoteDsManager")
+        if (mode == "RemoteDsManager")
         {
             DSManager = new ListDsManager();
            if (instance == null)
-                instance = new com.example.android5777_4390_7178_01.model.datasource.ListDsManager(context);
+                instance = new com.example.android5777_4390_7178_01.model.datasource.ListDsManager();
             return instance;
         }
 
@@ -49,11 +49,11 @@ public class ManagerFactory {
         {
             DSManager = new RemoteDsManager();
             if (instance == null)
-                instance = new com.example.android5777_4390_7178_01.model.datasource.ListDsManager(context);
+                instance = new com.example.android5777_4390_7178_01.model.datasource.RemoteDsManager();
             return instance;
         }
 
         else return null;
-    }*/
+
     }
 }

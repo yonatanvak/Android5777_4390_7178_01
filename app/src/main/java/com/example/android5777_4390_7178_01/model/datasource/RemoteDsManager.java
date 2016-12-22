@@ -3,12 +3,10 @@ package com.example.android5777_4390_7178_01.model.datasource;
 import android.content.ContentValues;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
-import com.example.android5777_4390_7178_01.model.entities.Activities_List;
 import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**

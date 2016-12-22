@@ -1,12 +1,14 @@
 package com.example.android5777_4390_7178_01.Controller;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.android5777_4390_7178_01.MainActivity;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
@@ -40,6 +42,9 @@ public class Registery extends AppCompatActivity {
                         return null;
                     }
                 };
+
+                Intent sign = new Intent(Registery.this , MainActivity.class);
+                startActivity(sign);
             }}
         );}
 

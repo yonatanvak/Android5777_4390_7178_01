@@ -10,4 +10,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android5777_4390_7178_01.MainActivity">
 
+    <TextView
+        android:text="Welcome"
+        android:layout_width="wrap_content"
+        android:id="@+id/textView7"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_orange_dark"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:fontFamily="cursive"
+        android:id="@+id/tvNameUser"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
+
+    <Button
+        android:text="Add Attraction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonADDA"
+        android:layout_below="@+id/buttonADDB"
+        android:layout_alignParentLeft="true"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+
+    <Button
+        android:text="Add Business"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonADDB"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_marginTop="83dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
