@@ -35,6 +35,7 @@ public class Registery extends AppCompatActivity {
                 contentValueManager.put("password", password.toString());
                 contentValueManager.put("userNumber",numberUser);
 
+
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {
@@ -44,7 +45,7 @@ public class Registery extends AppCompatActivity {
                 };
 
                 Intent sign = new Intent(Registery.this , MainActivity.class);
-                startActivity(sign);
+             startActivity(sign);
             }}
         );}
 
