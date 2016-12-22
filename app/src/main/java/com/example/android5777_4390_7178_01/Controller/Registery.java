@@ -43,7 +43,7 @@ public class Registery extends AppCompatActivity {
                     }
                 };
 
-                Intent sign = new Intent(Registery.this , MainActivity.class);
+                Intent sign = new Intent(Registery.this , AddAttraction.class);
                 startActivity(sign);
             }}
         );}
