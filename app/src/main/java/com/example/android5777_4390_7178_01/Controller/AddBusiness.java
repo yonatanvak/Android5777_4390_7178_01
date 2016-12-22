@@ -22,7 +22,7 @@ public class AddBusiness extends AppCompatActivity {
 
         final Business business = new Business();
 
-        findViewById(R.id.buttonAdd).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.buttonAddBusines).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText etStreet = (EditText)findViewById( R.id.etStreet );

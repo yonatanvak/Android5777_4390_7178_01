@@ -24,8 +24,8 @@ public class Attractions extends AppCompatActivity {
     private String description;
     private long IDbusines;
 
-    public  Attractions(Activity_type types, String country, Calendar activityStart, Calendar activityEnd,
-                           int price, String description, long IDbusiness) {
+    public  Attractions(String types, Long country, String activityStart, Integer activityEnd,
+                        String price, String description, String IDbusiness) {
         this.types = types;
         this.country = country;
         this.activityStart = activityStart;

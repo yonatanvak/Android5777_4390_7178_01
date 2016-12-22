@@ -20,7 +20,7 @@ public class ListDsManager implements IDSManager {
 
     final ArrayList<Manager> managerList = new ArrayList<Manager>();
     final ArrayList<Business> businessList = new ArrayList<Business>();
-    final ArrayList<Attractions> attractionses = new ArrayList< Attractions>();
+    final ArrayList<Attractions> attractionsesList = new ArrayList< Attractions>();
 
     @Override
     public void addManager(ContentValues contant_manager)  {
@@ -37,8 +37,9 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addAttraction(ContentValues contant_attraction) {
-
-
+        attractionsesList.add(new Attractions(contant_attraction.getAsString("description"),contant_attraction.getAsLong("idBussines"),
+                contant_attraction.getAsString("country"),contant_attraction.getAsInteger("price"),
+                contant_attraction.getAsString("startDate"), contant_attraction.getAsString("endDate"), contant_attraction.getAsString("type")));
     }
 
     @Override

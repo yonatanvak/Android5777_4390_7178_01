@@ -7,9 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.android5777_4390_7178_01.model.Activity_type;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
 
 public class login extends AppCompatActivity {
@@ -22,6 +25,7 @@ public class login extends AppCompatActivity {
         findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 EditText manegerUser = (EditText) findViewById(R.id.etUser);
 

@@ -26,7 +26,8 @@
 
         <activity android:name=".model.entities.Attractions" />
         <activity android:name=".Controller.Registery" />
-        <activity android:name=".Controller.AddBusiness"></activity>
+        <activity android:name=".Controller.AddBusiness" />
+        <activity android:name=".Controller.AddAttraction"></activity>
     </application>
 
 </manifest>
