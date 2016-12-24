@@ -32,7 +32,7 @@ public class AddAttraction extends AppCompatActivity {
                 EditText idBussines = (EditText)findViewById( R.id.etIdBussines );
                 EditText country = (EditText)findViewById( R.id.etCountry );
                 EditText  price = (EditText)findViewById( R.id.etPrice );
-                EditText  startDate = (EditText)findViewById( R.id.etStartDate );
+                EditText  startDate = (EditText)findViewById( R.id.etEndDate);
                 EditText  endDate = (EditText)findViewById( R.id.etEndDate);
                 String type = ((Activity_type)spinner.getSelectedItem()).name();
 

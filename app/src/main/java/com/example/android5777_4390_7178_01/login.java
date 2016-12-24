@@ -27,7 +27,7 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                EditText manegerUser = (EditText) findViewById(R.id.etUser);
+                EditText manegerUser = (EditText) findViewById(R.id.etUserN);
 
                 if (manegerUser.getText().toString().equals("בניה")) {
                     Intent intent = new Intent(login.this, MainActivity.class);

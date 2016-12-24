@@ -5,9 +5,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
@@ -31,7 +29,7 @@ public class AddBusiness extends AppCompatActivity {
                 EditText  etEmail = (EditText)findViewById( R.id.etEmail );
                 EditText  etPhone = (EditText)findViewById( R.id.etPhone );
                 EditText  etIdBusiness = (EditText)findViewById( R.id.etIdBusiness );
-                EditText etBusinessName = (EditText)findViewById( R.id.etBusinessName );
+                EditText etBusinessName = (EditText)findViewById( R.id.etUserName);
                 EditText   etWebSite = (EditText)findViewById( R.id.etWebSite );
 
                 final ContentValues contentValuesAddBusiness = new ContentValues();

@@ -26,7 +26,7 @@
 
         <activity android:name=".login" />
         <activity android:name=".Controller.AddBusiness" />
-        <activity android:name=".Controller.AddAttraction"></activity>
+        <activity android:name=".Controller.AddAttraction" />
     </application>
 
 </manifest>

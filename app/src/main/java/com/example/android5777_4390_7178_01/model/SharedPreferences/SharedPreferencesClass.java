@@ -3,16 +3,27 @@ package com.example.android5777_4390_7178_01.model.SharedPreferences;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.android5777_4390_7178_01.R;
 
 /**
  * Created by יונתן on 15/12/2016.
  */
 
 public class SharedPreferencesClass extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_manager);
+        findViews();
+    }
 
     private EditText nameLoginEditText;
     private EditText passwordLoginEditText;
@@ -23,6 +34,19 @@ public class SharedPreferencesClass extends Activity {
     private Button saveButton;
     private Button loginButton;
     private Button clearButton;
+
+private void findViews()
+
+    {
+        nameUserEditText = (EditText) findViewById(R.id.etUserName);
+        passwordUserEditText = (EditText) findViewById(R.id.etPassword);
+        saveButton = (Button) findViewById(R.id.buttonSign);
+     //   loginButton = (Button) findViewById(R.id.buttonSign);
+    }
+
+    public void onClick(View v) {
+       saveSharedPreferences();
+    }
 
     private void clearSharedPreferences() {///////--------------////////////////
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -47,17 +71,17 @@ public class SharedPreferencesClass extends Activity {
         }
     }
 
-    private void saveSharedPreferences() {
+    public void saveSharedPreferences() {
         try {
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
             String name = nameUserEditText.getText().toString();
-            int numberUser = Integer.parseInt(numberUserEditText.getText().toString());
+        //    int numberUser = Integer.parseInt(numberUserEditText.getText().toString());
             int passwoedUser = Integer.parseInt(passwordUserEditText.getText().toString());
 
             editor.putString("NAME", name);
-            editor.putInt("NUMBER_USER", numberUser);
+        //    editor.putInt("NUMBER_USER", numberUser);
             editor.putInt("PASSWOER_USER", passwoedUser);
             editor.commit();
             Toast.makeText(this, "save name and number and password Preferences", Toast.LENGTH_SHORT).show();
@@ -65,6 +89,8 @@ public class SharedPreferencesClass extends Activity {
             Toast.makeText(this, "failed to save Preferences", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
 }
 //-----------------------------------------------------------------------------
@@ -153,11 +179,6 @@ private void findViews() {
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        findViews();
-    }
+
 }
 */

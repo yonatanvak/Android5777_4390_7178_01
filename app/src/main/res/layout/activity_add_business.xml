@@ -17,12 +17,12 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/etStreet"
-        android:text="Street"
         android:layout_below="@+id/etEmail"
         android:layout_toRightOf="@+id/etCity"
         android:layout_marginTop="44dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:hint="Street" />
 
     <EditText
         android:layout_width="90dp"
@@ -30,11 +30,11 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/etCity"
-        android:text="City"
         android:layout_alignBaseline="@+id/etStreet"
         android:layout_alignBottom="@+id/etStreet"
         android:layout_centerHorizontal="true"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:hint="City" />
 
     <EditText
         android:layout_width="90dp"
@@ -42,54 +42,42 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/etCountry"
-        android:text="Country"
         android:layout_alignBaseline="@+id/etCity"
         android:layout_alignBottom="@+id/etCity"
         android:layout_toLeftOf="@+id/etCity"
         android:layout_marginRight="18dp"
         android:layout_marginEnd="18dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="Country" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/etEmail"
-        android:text="E-mail"
         android:layout_below="@+id/etPhone"
         android:layout_alignLeft="@+id/etPhone"
         android:layout_alignStart="@+id/etPhone"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="13dp"
+        android:hint="E-mail" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/etPhone"
-        android:text="Phone"
         android:layout_below="@+id/etIdBusiness"
         android:layout_alignLeft="@+id/etIdBusiness"
         android:layout_alignStart="@+id/etIdBusiness"
-        android:layout_marginTop="10dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="ID business"
-        android:ems="10"
-        android:id="@+id/etIdBusiness"
-        android:layout_below="@+id/etBusinessName"
-        android:layout_alignLeft="@+id/etBusinessName"
-        android:layout_alignStart="@+id/etBusinessName"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="10dp"
+        android:hint="Phone" />
 
     <TextView
         android:text="Address:"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
         android:textAppearance="@style/TextAppearance.AppCompat"
@@ -100,34 +88,19 @@
         android:layout_marginTop="10dp"
         android:textStyle="normal|bold"
         android:fontFamily="casual"
-        android:textColor="@android:color/holo_orange_dark" />
-
-    <TextView
-        android:text="Business information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:typeface="monospace"
-        android:fontFamily="cursive"
-        android:textSize="28sp"
-        android:textStyle="normal|bold"
         android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/etBusinessName"
-        android:layout_alignEnd="@+id/etBusinessName" />
+        android:textAlignment="textStart" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Business name"
         android:ems="10"
         android:layout_marginTop="20dp"
-        android:id="@+id/etBusinessName"
+        android:id="@+id/etUserName"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:hint="Business name" />
 
     <Button
         android:text="Add "
@@ -149,11 +122,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="WebSite"
         android:ems="10"
         android:id="@+id/etWebSite"
         android:layout_below="@+id/etStreet"
         android:layout_marginTop="11dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="WebSite" />
+
+    <TextView
+        android:text="Business information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:typeface="monospace"
+        android:fontFamily="cursive"
+        android:textSize="28sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/etIdBusiness"
+        android:layout_marginTop="13dp"
+        android:hint="ID business"
+        android:layout_below="@+id/etUserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

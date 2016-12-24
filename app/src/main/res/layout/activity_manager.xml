@@ -18,7 +18,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_marginTop="96dp"
-        android:id="@+id/etBusinessName"
+        android:id="@+id/etUserName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:hint="User name" />
@@ -26,13 +26,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/etPassword"
         android:layout_marginTop="31dp"
-        android:layout_below="@+id/etBusinessName"
-        android:layout_alignLeft="@+id/etBusinessName"
-        android:layout_alignStart="@+id/etBusinessName"
+        android:layout_below="@+id/etUserName"
+        android:layout_alignLeft="@+id/etUserName"
+        android:layout_alignStart="@+id/etUserName"
         android:hint="Password" />
 
     <TextView
