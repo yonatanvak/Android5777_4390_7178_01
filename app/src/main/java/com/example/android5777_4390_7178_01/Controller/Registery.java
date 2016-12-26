@@ -2,7 +2,9 @@ package com.example.android5777_4390_7178_01.Controller;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,14 +26,19 @@ public class Registery extends AppCompatActivity {
 
        final Manager user = new Manager();
 
-    //    SharedPreferencesClass shc = new SharedPreferencesClass();
-     //   shc.saveSharedPreferences();
+       // SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+      //  final SharedPreferences.Editor editor = sharedPreferences.edit();
+        final SharedPreferences.Editor editor = getSharedPreferences("PREF", MODE_PRIVATE).edit();
 
         findViewById(R.id.buttonSign).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText username = (EditText) findViewById(R.id.etUserName);
                 EditText password = (EditText) findViewById(R.id.etPassword);
+
+                editor.putString("NAME", username.getText().toString());
+                editor.putString("PASSWOER_USER", password.getText().toString());
+                editor.commit();
 
                 user.userNumber++;
 //try {

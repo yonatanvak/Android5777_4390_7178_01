@@ -22,8 +22,8 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addManager(ContentValues contant_manager)  {
-        managerList.add(new Manager(contant_manager.getAsLong("password"),
-                contant_manager.getAsString("userName"),contant_manager.getAsLong("userNumber")));
+        managerList.add(new Manager(contant_manager.getAsLong("userNumber"),contant_manager.getAsString("password"),
+                contant_manager.getAsString("userName")));
     }
 
     @Override

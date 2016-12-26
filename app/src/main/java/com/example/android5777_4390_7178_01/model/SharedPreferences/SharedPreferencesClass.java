@@ -79,11 +79,12 @@ private void findViews()
             String name = nameUserEditText.getText().toString();
         //    int numberUser = Integer.parseInt(numberUserEditText.getText().toString());
             int passwoedUser = Integer.parseInt(passwordUserEditText.getText().toString());
-
+//    editor.putInt("NUMBER_USER", numberUser);
             editor.putString("NAME", name);
-        //    editor.putInt("NUMBER_USER", numberUser);
+
             editor.putInt("PASSWOER_USER", passwoedUser);
             editor.commit();
+
             Toast.makeText(this, "save name and number and password Preferences", Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
             Toast.makeText(this, "failed to save Preferences", Toast.LENGTH_SHORT).show();

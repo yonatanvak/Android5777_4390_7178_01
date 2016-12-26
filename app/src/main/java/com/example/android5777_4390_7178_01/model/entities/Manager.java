@@ -16,10 +16,10 @@ public class Manager extends AppCompatActivity {
 
     public static long userNumber;
     private String name;
-    private long password;
+    private String password;
 
 
-    public Manager(long userNumber, String name, long password) {
+    public Manager(long userNumber, String name, String password) {
         this.userNumber = userNumber;
         this.name = name;
         this.password = password;
@@ -42,11 +42,11 @@ public class Manager extends AppCompatActivity {
         this.name = name;
     }
 
-    public long getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(long password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
