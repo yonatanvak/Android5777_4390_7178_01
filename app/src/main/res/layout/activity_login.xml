@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app=""
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
@@ -24,33 +25,7 @@
         android:text="Welcome to the club of                                    Hagar And Vaknin" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/etUserN"
-        android:hint="User name"
-        android:fontFamily="casual"
-        android:textStyle="normal|bold"
-        android:layout_above="@+id/editTextPassword"
-        style="@android:style/Widget.AutoCompleteTextView"
-        android:inputType="text"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:id="@+id/buttonLogin"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_above="@+id/buttonForget"
-        android:layout_centerHorizontal="true"
-        android:onClick="buttonLogin"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
@@ -65,32 +40,56 @@
         />
 
     <Button
-        android:text="Forgot your username or password?"
-        android:layout_width="match_parent"
+        android:text="Login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonForget"
-        android:layout_marginBottom="79dp"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:textColor="@color/colorAccent"
-        android:textStyle="normal|bold"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/buttonLogin"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="buttonLogin"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp" />
 
     <Button
         android:text="No account yet? sign up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/buttonSign1"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textStyle="normal|bold"
         android:onClick="buttonSign"
         android:textColor="@color/colorAccent"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/cbRemember"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:text="Remember me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/cbRemember"
+        style="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox"
+        android:layout_below="@+id/buttonLogin"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorAccent" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/etUserN"
+        android:hint="User name"
+        android:fontFamily="casual"
+        android:textStyle="normal|bold"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:inputType="text"
+        android:layout_above="@+id/editTextPassword"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="21dp" />
 
 </RelativeLayout>
