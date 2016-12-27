@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonADDB).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentAddBusiness = new Intent(MainActivity.this, AddBusiness.class);
-                startActivity(intentAddBusiness);
+              //  Intent intentAddBusiness = new Intent(MainActivity.this, AddBusiness.class);
+               // startActivity(intentAddBusiness);
+                finish();
             }
         });
 

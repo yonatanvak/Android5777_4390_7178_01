@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.backend.ManagerFactory;

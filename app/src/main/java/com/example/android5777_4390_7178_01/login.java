@@ -1,6 +1,7 @@
 package com.example.android5777_4390_7178_01;
 
 import android.content.ContentValues;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -22,12 +23,20 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        final SharedPreferences sharedPreferences = getSharedPreferences("TEST",0);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        final EditText manegerUser = (EditText) findViewById(R.id.etUserN);
+        final EditText passwordUser = (EditText) findViewById(R.id.editTextPassword);
+
+        manegerUser.setText(sharedPreferences.getString("NAME",""));
+        passwordUser.setText(sharedPreferences.getString("PASSWORD",""));
         findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                EditText manegerUser = (EditText) findViewById(R.id.etUserN);
 
                 if (manegerUser.getText().toString().equals("בניה")) {
                     Intent intent = new Intent(login.this, MainActivity.class);

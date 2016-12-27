@@ -1,13 +1,17 @@
 package com.example.android5777_4390_7178_01.model.datasource;
 
 import android.content.ContentValues;
+import android.util.Log;
 
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by יונתן on 08/12/2016.
@@ -24,6 +28,8 @@ public class ListDsManager implements IDSManager {
     public void addManager(ContentValues contant_manager)  {
         managerList.add(new Manager(contant_manager.getAsLong("userNumber"),contant_manager.getAsString("password"),
                 contant_manager.getAsString("userName")));
+        Log.d("TAG","user added");
+      //  Toast.makeText(ListDsManager.this,"user added",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -35,11 +41,24 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addAttraction(ContentValues contant_attraction) {
-     //   attractionsesList.add(new Attractions(contant_attraction.getAsString("type"),contant_attraction.getAsString("country")
-           //     ,contant_attraction.get("startDate"), contant_attraction.get("endDate")
-           //     ,contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
-           //     contant_attraction.getAsLong("idBussines")
-     //           ));
+        SimpleDateFormat dateAttraction = new SimpleDateFormat("DD/MM/YYYY", Locale.ENGLISH);
+
+        Calendar dateS = dateAttraction.getCalendar();
+        Calendar dateE = dateAttraction.getCalendar();
+
+        try {
+            dateS.setTime(dateAttraction.parse(contant_attraction.getAsString("startDate")));
+            dateE.setTime(dateAttraction.parse(contant_attraction.getAsString("endDate")));
+
+           /*   attractionsesList.add(new Attractions(contant_attraction.getAsString("type"),contant_attraction.getAsString("country")
+                ,dateS, dateE,contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
+                contant_attraction.getAsLong("idBussines")
+                      ));*/
+        }
+        catch (Exception ex)
+        {
+
+        }
     }
 
     @Override
