@@ -2,6 +2,7 @@ package com.example.android5777_4390_7178_01.Controller;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -9,6 +10,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.android5777_4390_7178_01.MainActivity;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.Activity_type;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
@@ -99,12 +102,13 @@ public class AddAttraction extends AppCompatActivity {
 
                 EditText description = (EditText)findViewById( R.id.etDescription );
                 EditText idBussines = (EditText)findViewById( R.id.etIdBussines );
+                idBussines.setText(getIntent().getStringExtra("ID BUSSINES"));
                 EditText country = (EditText)findViewById( R.id.etCountry );
                 EditText  price = (EditText)findViewById( R.id.etPrice );
                 //  EditText  startDate = (EditText)findViewById( R.id.etEndDate);
                 //   EditText  endDate = (EditText)findViewById( R.id.etEndDate);
                 String type = ((Activity_type)spinner.getSelectedItem()).name();
-
+                Log.d("TAG","type"+type.toString());
                 final ContentValues contentValuesAttarction = new ContentValues();
                 contentValuesAttarction.put("description",description.toString());
                 contentValuesAttarction.put("idBussines",idBussines.toString());
@@ -121,6 +125,10 @@ public class AddAttraction extends AppCompatActivity {
                         return null;
                     }
                 };
+
+                Intent intent = new Intent(AddAttraction.this , MainActivity.class);
+                intent.putExtra("ID BUSSINES",idBussines.getText().toString());
+                startActivity(intent);
             }}
         );}
 }

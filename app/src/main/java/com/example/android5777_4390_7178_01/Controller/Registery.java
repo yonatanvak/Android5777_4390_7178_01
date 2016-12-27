@@ -55,7 +55,6 @@ try {
     contentValueManager.put("userName", username.toString());
     contentValueManager.put("password", password.toString());
     contentValueManager.put("userNumber", numberUser);
-Log.d("TAG","oved");
 
     new AsyncTask<Void, Void, Void>() {
         @Override
@@ -67,10 +66,11 @@ Log.d("TAG","oved");
 }
 catch (Exception e)
 {
-    Toast.makeText(Registery.this ,  "הטעות כאן!!" , Toast.LENGTH_LONG).show();
+    Toast.makeText(Registery.this ,  "יש בעיה בהוספת משתמש!!" , Toast.LENGTH_LONG).show();
 }
                 Toast.makeText(Registery.this ,  "number user = "+numberUser+"" , Toast.LENGTH_LONG).show();
-                Intent sign = new Intent(Registery.this , login.class);
+                Intent sign = new Intent(Registery.this , MainActivity.class);
+                sign.putExtra("USERNAME", username.getText().toString());
              startActivity(sign);
             }}
         );}

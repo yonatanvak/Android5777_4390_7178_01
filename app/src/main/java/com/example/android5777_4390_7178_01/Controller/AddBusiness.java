@@ -1,12 +1,14 @@
 package com.example.android5777_4390_7178_01.Controller;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.android5777_4390_7178_01.MainActivity;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
 import com.example.android5777_4390_7178_01.model.entities.Business;
@@ -48,7 +50,9 @@ public class AddBusiness extends AppCompatActivity {
                         getContentResolver().insert(CustomContentProvider.BUSINESS_CONTENT_URL, contentValuesAddBusiness);
                         return null;
                     }
-                };
+                };Intent intent = new Intent(AddBusiness.this , AddAttraction.class);
+                intent.putExtra("ID BUSSINES",etIdBusiness.getText().toString());
+                startActivity(intent);
             }}
         );}
 

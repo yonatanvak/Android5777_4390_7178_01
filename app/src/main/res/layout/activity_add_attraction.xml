@@ -111,6 +111,19 @@
         android:layout_marginTop="11dp" />
 
     <Button
+        android:text="Date Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSdate"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+        android:layout_above="@+id/etPrice"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <Button
         android:text="Date end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,18 +138,6 @@
         android:layout_marginRight="18dp"
         android:layout_marginEnd="18dp" />
 
-    <Button
-        android:text="Date Start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonSdate"
-        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,7 +146,6 @@
         android:id="@+id/etPrice"
         android:textAlignment="center"
         android:hint="Price"
-        android:layout_below="@+id/buttonEdate"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp" />
+        android:layout_above="@+id/buttonAddAtraction"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
