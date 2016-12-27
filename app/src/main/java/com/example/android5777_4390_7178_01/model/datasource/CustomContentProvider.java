@@ -98,6 +98,7 @@ public class CustomContentProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
         try {
             int uriCode = uriMatcher.match(uri);
+
             switch (uriCode) {
                 case 1: // users
                     ArrayList<Manager> users = dsManager.getManagerList();
