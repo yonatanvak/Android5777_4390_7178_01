@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView s = (TextView) findViewById(R.id.textViewUser);
-        s.setText(getIntent().getStringExtra("NAME"));
+        s.setText(getIntent().getStringExtra("USERNAME"));
 
         findViewById(R.id.buttonADDB).setOnClickListener(new View.OnClickListener() {
             @Override
