@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.android5777_4390_7178_01.MainActivity;
 import com.example.android5777_4390_7178_01.R;
@@ -95,14 +96,14 @@ public class AddAttraction extends AppCompatActivity {
 
                 }
         );
+       final TextView idBussines = (TextView) findViewById( R.id.tVID );
+        idBussines.setText(getIntent().getStringExtra("ID BUSSINES"));
 
         findViewById(R.id.buttonAddAtraction).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 EditText description = (EditText)findViewById( R.id.etDescription );
-                EditText idBussines = (EditText)findViewById( R.id.etIdBussines );
-                idBussines.setText(getIntent().getStringExtra("ID BUSSINES"));
                 EditText country = (EditText)findViewById( R.id.etCountry );
                 EditText  price = (EditText)findViewById( R.id.etPrice );
                 //  EditText  startDate = (EditText)findViewById( R.id.etEndDate);
