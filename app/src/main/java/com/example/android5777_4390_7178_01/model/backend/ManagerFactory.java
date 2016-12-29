@@ -18,6 +18,7 @@ import java.util.ArrayList;
  */
 
 public class ManagerFactory {
+
      static IDSManager instance = null;
 
       public static String mode = "ListDsManager";

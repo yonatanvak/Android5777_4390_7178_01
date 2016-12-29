@@ -29,7 +29,7 @@ public class CustomContentProvider extends ContentProvider {
     public static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
     public static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/attraction");
 
-    public static final String TAG= "enterTaimentContent";
+   // public static final String TAG= "enterTaimentContent";
 
 
     static final int URI_MANAGER = 1;
@@ -135,7 +135,7 @@ public class CustomContentProvider extends ContentProvider {
                     throw new IllegalArgumentException("invalid query, no such path.");
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Log.d("TAG", ex.getMessage());
             return null;
         }
     }

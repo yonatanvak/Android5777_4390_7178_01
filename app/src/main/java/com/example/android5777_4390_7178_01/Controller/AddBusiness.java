@@ -3,8 +3,10 @@ package com.example.android5777_4390_7178_01.Controller;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -47,7 +49,17 @@ public class AddBusiness extends AppCompatActivity {
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {
+                        try{
                         getContentResolver().insert(CustomContentProvider.BUSINESS_CONTENT_URL, contentValuesAddBusiness);
+                            for (int i=0; i<11 ; i++)
+                            {
+                                SystemClock.sleep(500);
+                            }
+                            Log.d("TAG","AsyncTask bussines good");
+                        }
+                        catch (Exception e) {
+                            Log.d("TAG","AsyncTask bussines not good");
+                        }
                         return null;
                     }
                 };Intent intent = new Intent(AddBusiness.this , AddAttraction.class);

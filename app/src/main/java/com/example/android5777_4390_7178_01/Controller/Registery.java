@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,7 +60,17 @@ try {
     new AsyncTask<Void, Void, Void>() {
         @Override
         protected Void doInBackground(Void... params) {
-            getContentResolver().insert(CustomContentProvider.MANAGER_CONTENT_URL, contentValueManager);
+            try {
+                getContentResolver().insert(CustomContentProvider.MANAGER_CONTENT_URL, contentValueManager);
+                for (int i=0; i<11 ; i++)
+                {
+                    SystemClock.sleep(500);
+                }
+                Log.d("TAG","AsyncTask user good");
+            }
+            catch (Exception e) {
+                Log.d("TAG","AsyncTask user not good");
+            }
             return null;
         }
     };

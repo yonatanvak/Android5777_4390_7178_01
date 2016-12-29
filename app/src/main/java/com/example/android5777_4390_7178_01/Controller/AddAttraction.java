@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -115,14 +116,24 @@ public class AddAttraction extends AppCompatActivity {
                 contentValuesAttarction.put("idBussines",idBussines.toString());
                 contentValuesAttarction.put("country",country.toString());
                 contentValuesAttarction.put("price",price.toString());
-                contentValuesAttarction.put("startDate",sDate.toString());
-                contentValuesAttarction.put("endDate",eDate.toString());
-                contentValuesAttarction.put("type",type.toString());
+                contentValuesAttarction.put("startDate",sDate.getText().toString());
+                contentValuesAttarction.put("endDate",eDate.getText().toString());
+                contentValuesAttarction.put("type",type.valueOf(Activity_type.values()));
 
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {
+                        try{
                         getContentResolver().insert(CustomContentProvider.ATTRACTION_CONTENT_URL, contentValuesAttarction);
+                            for (int i=0; i<11 ; i++)
+                            {
+                                SystemClock.sleep(500);
+                            }
+                            Log.d("TAG","AsyncTask attraction good");
+                        }
+                        catch (Exception e) {
+                            Log.d("TAG","AsyncTask attraction not good");
+                        }
                         return null;
                     }
                 };

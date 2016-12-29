@@ -27,6 +27,11 @@
         <activity android:name=".Controller.Registery" />
         <activity android:name=".Controller.AddBusiness" />
         <activity android:name=".Controller.AddAttraction" />
+
+        <service
+            android:name=".model.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
