@@ -3,6 +3,7 @@ package com.example.android5777_4390_7178_01.model.datasource;
 import android.content.ContentValues;
 import android.util.Log;
 
+import com.example.android5777_4390_7178_01.model.Activity_type;
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
@@ -56,17 +57,20 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addAttraction(ContentValues contant_attraction) {
-        SimpleDateFormat dateAttraction = new SimpleDateFormat("DD/MM/YYYY", Locale.ENGLISH);
+       // SimpleDateFormat dateAttraction = new SimpleDateFormat("DD/MM/YYYY", Locale.ENGLISH);
 
-        Calendar dateS = dateAttraction.getCalendar();
-        Calendar dateE = dateAttraction.getCalendar();
+      //  Calendar dateS = dateAttraction.getCalendar();
+      //  Calendar dateE = dateAttraction.getCalendar();
 
         try {
-            dateS.setTime(dateAttraction.parse(contant_attraction.getAsString("startDate")));
-            dateE.setTime(dateAttraction.parse(contant_attraction.getAsString("endDate")));
+          //  dateS.setTime(dateAttraction.parse(contant_attraction.getAsString("activityStart")));
+          //  dateE.setTime(dateAttraction.parse(contant_attraction.getAsString("activityEnd")));
 
-             attractionsesList.add(new Attractions(contant_attraction.getAsString("type"),contant_attraction.getAsString("country")
-                ,dateS, dateE,contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
+            Activity_type activity_type= Activity_type.valueOf(contant_attraction.getAsString("type"));
+
+             attractionsesList.add(new Attractions(activity_type,contant_attraction.getAsString("country")
+                ,contant_attraction.getAsString("activityStart"),contant_attraction.getAsString("activityEnd"),
+                     contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
                 contant_attraction.getAsLong("idBussines")
                       ));
             Log.d("TAG", "Attraction added");

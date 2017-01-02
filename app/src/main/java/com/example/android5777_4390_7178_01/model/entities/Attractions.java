@@ -12,13 +12,13 @@ public class Attractions {
 
     private Activity_type types;
     private String country;
-    private Calendar activityStart;
-    private Calendar activityEnd;
+    private String activityStart;
+    private String activityEnd;
     private int price;
     private String description;
     private long IDbusines;
 
-    public  Attractions(Activity_type types, String country, Calendar activityStart, Calendar activityEnd,
+    public  Attractions(Activity_type types, String country, String activityStart, String activityEnd,
                         int price, String description, Long IDbusiness) {
         this.types = types;
         this.country = country;
@@ -46,19 +46,19 @@ public class Attractions {
         this.country = country;
     }
 
-    public Calendar getActivityStart() {
+    public String getActivityStart() {
         return activityStart;
     }
 
-    public void setActivityStart(Calendar activityStart) {
+    public void setActivityStart(String activityStart) {
         this.activityStart = activityStart;
     }
 
-    public Calendar getActivityEnd() {
+    public String getActivityEnd() {
         return activityEnd;
     }
 
-    public void setActivityEnd(Calendar activityEnd) {
+    public void setActivityEnd(String activityEnd) {
         this.activityEnd = activityEnd;
     }
 

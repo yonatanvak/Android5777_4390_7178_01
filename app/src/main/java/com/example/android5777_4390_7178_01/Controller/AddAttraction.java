@@ -116,9 +116,9 @@ public class AddAttraction extends AppCompatActivity {
                 contentValuesAttarction.put("idBussines",idBussines.toString());
                 contentValuesAttarction.put("country",country.toString());
                 contentValuesAttarction.put("price",price.toString());
-                contentValuesAttarction.put("startDate",sDate.getText().toString());
-                contentValuesAttarction.put("endDate",eDate.getText().toString());
-                contentValuesAttarction.put("type",type.valueOf(Activity_type.values()));
+                contentValuesAttarction.put("activityStart",sDate.getText().toString());
+                contentValuesAttarction.put("activityEnd",eDate.getText().toString());
+                contentValuesAttarction.put("type", String.valueOf(type.toString()));
 
                 new AsyncTask<Void, Void, Void>() {
                     @Override
