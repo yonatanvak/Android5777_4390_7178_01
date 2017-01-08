@@ -2,6 +2,7 @@ package com.example.android5777_4390_7178_01.model.datasource;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.util.Log;
 
 import com.example.android5777_4390_7178_01.model.entities.Activity_type;
@@ -81,12 +82,88 @@ public class ListDsManager implements IDSManager {
     }
 
     @Override
-    public Cursor getManager() {return null;}
+    public Cursor getManager() {
+        String[] columns = new String[]
+                {
+                        TravelContent.Manager.user_name,
+                        TravelContent.Manager.user_number,
+                        TravelContent.Manager.user_password,
+                };
+
+        MatrixCursor matrixCursor = new MatrixCursor(columns);
+
+        for (Manager m : managerList) {
+            matrixCursor.addRow(new Object[]
+                    {
+                            m.getUserNumber(),
+                            m.getName(),
+                            m.getPassword()
+                    });
+        }
+
+        return matrixCursor;
+    }
+
     @Override
-    public Cursor getBusiness() {return null;}
+    public Cursor getBusiness(){
+    String[] columns = new String[]
+            {
+                    TravelContent.Business.business_id,
+                    TravelContent.Business.business_name,
+                    TravelContent.Business.business_street,
+                    TravelContent.Business.business_country,
+                    TravelContent.Business.business_city,
+                    TravelContent.Business.business_phone,
+                    TravelContent.Business.business_email,
+                    TravelContent.Business.business_webSite
+            };
+
+    MatrixCursor matrixCursor = new MatrixCursor(columns);
+
+    for (Business b : businessList) {
+        matrixCursor.addRow(new Object[]
+                {
+                        b.getIDbusines(),
+                        b.getNameBusines(),
+                        b.getAd_street(),
+                        b.getAd_country(),
+                        b.getAd_city(),
+                        b.getPhone(),
+                        b.getEmail(),
+                        b.getwebSite()
+                });
+    }
+
+    return matrixCursor;
+}
     @Override
     public Cursor getAttraction() {
-        return null;
+        String[] columns = new String[]
+                {
+                        TravelContent.Attraction.activity_type,
+                        TravelContent.Attraction.activity_country,
+                        TravelContent.Attraction.activity_TStart,
+                        TravelContent.Attraction.activity_TEnd,
+                        TravelContent.Attraction.activity_price,
+                        TravelContent.Attraction.activity_description,
+                        TravelContent.Attraction.activity_id
+                };
+
+        MatrixCursor matrixCursor = new MatrixCursor(columns);
+
+        for (Attractions a : attractionsesList) {
+            matrixCursor.addRow(new Object[]
+                    {
+                            a.getTypes(),
+                            a.getCountry(),
+                            a.getActivityEnd(),
+                            a.getActivityEnd(),
+                            a.getPrice(),
+                            a.getDescription(),
+                            a.getIDbusines()
+                    });
+        }
+        return matrixCursor;
     }
 
 
