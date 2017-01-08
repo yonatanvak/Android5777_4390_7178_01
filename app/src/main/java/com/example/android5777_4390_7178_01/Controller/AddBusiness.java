@@ -38,7 +38,7 @@ public class AddBusiness extends AppCompatActivity {
 
                 final ContentValues contentValuesAddBusiness = new ContentValues();
                 contentValuesAddBusiness.put("businessName",etBusinessName.toString());
-                contentValuesAddBusiness.put("IdBusiness",etIdBusiness.toString());
+                contentValuesAddBusiness.put("BusinessID",etIdBusiness.toString());
                 contentValuesAddBusiness.put("WebSite",etWebSite.toString());
                 contentValuesAddBusiness.put("Email",etEmail.toString());
                 contentValuesAddBusiness.put("Phone",etPhone.toString());

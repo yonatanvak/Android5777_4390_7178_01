@@ -34,13 +34,26 @@ public class MySQL_DSManager implements IDSManager {
     }
 
     @Override
+    public void addManager(ContentValues values) {
+        try {
+            String result = PHPTools.POST(WEB_URL + "/Manager.php", values);
+            long id = Long.parseLong(result);
+            if (id > 0)
+                SetUpdate();
+            printLog("addManager:\n" + result);
+        } catch (IOException e) {
+            printLog("addStudent Exception:\n" + e);
+        }
+    }
+
+    @Override
     public void addBusiness(ContentValues values) {
         try {
             String result = PHPTools.POST(WEB_URL + "/Business.php", values);
             long id = Long.parseLong(result);
             if (id > 0)
                 SetUpdate();
-            printLog("addStudent:\n" + result);
+            printLog("addBusiness:\n" + result);
         } catch (IOException e) {
             printLog("addStudent Exception:\n" + e);
         }
@@ -53,7 +66,7 @@ public class MySQL_DSManager implements IDSManager {
             long id = Long.parseLong(result);
             if (id > 0)
                 SetUpdate();
-            printLog("addLecturer:\n" +result);
+            printLog("addAttraction:\n" +result);
         } catch (IOException e) {
             printLog("addLecturer:\n" +e);
         }
@@ -68,8 +81,8 @@ public class MySQL_DSManager implements IDSManager {
                             TravelContent.Manager.user_number,
                             TravelContent.Manager.user_password,
                     });
-            String str = PHPTools.GET(WEB_URL + "/Manager.php");
-            JSONArray array = new JSONObject(str).getJSONArray("Manager");
+            String str = PHPTools.GET(WEB_URL + "/get_manager.php");
+            JSONArray array = new JSONObject(str).getJSONArray("manager");
 
 
             for (int i = 0; i < array.length(); i++) {
@@ -79,7 +92,7 @@ public class MySQL_DSManager implements IDSManager {
 
                 matrixCursor.addRow(new Object[]{
                         jsonObject.getString(TravelContent.Manager.user_number),
-                        jsonObject.getInt(TravelContent.Manager.user_name),
+                        jsonObject.getString(TravelContent.Manager.user_name),
                         jsonObject.getString(TravelContent.Manager.user_password),
                 });
             }
@@ -106,8 +119,8 @@ public class MySQL_DSManager implements IDSManager {
 
         MatrixCursor matrixCursor = new MatrixCursor(columns);
         try {
-            String str = PHPTools.GET(WEB_URL + "/courses.php");
-            JSONArray array = new JSONObject(str).getJSONArray("courses");
+            String str = PHPTools.GET(WEB_URL + "/get_business.php");
+            JSONArray array = new JSONObject(str).getJSONArray("business");
 
 
             for (int i = 0; i < array.length(); i++) {
@@ -116,22 +129,64 @@ public class MySQL_DSManager implements IDSManager {
                 jsonObject = array.getJSONObject(i);
 
                 matrixCursor.addRow(new Object[]{
-                        jsonObject.getInt(AcademyContract.Course.ID),
-                        jsonObject.getString(AcademyContract.Course.NAME),
-                        jsonObject.getInt(AcademyContract.Course.MIN_GRADE),
-                        jsonObject.getBoolean(AcademyContract.Course.REQUIRED),
-                        jsonObject.getInt(AcademyContract.Course.LECTURER_ID)
+                        jsonObject.getLong(TravelContent.Business.business_id),
+                        jsonObject.getString(TravelContent.Business.business_name),
+                        jsonObject.getBoolean(TravelContent.Business.business_street),
+                        jsonObject.getString(TravelContent.Business.business_country),
+                        jsonObject.getBoolean(TravelContent.Business.business_city),
+                        jsonObject.getInt(TravelContent.Business.business_phone),
+                        jsonObject.getBoolean(TravelContent.Business.business_email),
+                        jsonObject.getBoolean(TravelContent.Business.business_webSite),
                 });
             }
             return matrixCursor;
         } catch (Exception e) {
             return null;
         }
-
-
     }
 
     @Override
+    public Cursor getAttraction() {
+        String[] columns = new String[]
+                {
+                        TravelContent.Attraction.activity_type,
+                        TravelContent.Attraction.activity_country,
+                        TravelContent.Attraction.activity_TStart,
+                        TravelContent.Attraction.activity_TEnd,
+                        TravelContent.Attraction.activity_price,
+                        TravelContent.Attraction.activity_description,
+                        TravelContent.Attraction.activity_id
+                };
+
+        MatrixCursor matrixCursor = new MatrixCursor(columns);
+        try {
+            String str = PHPTools.GET(WEB_URL + "/get_Attraction.php");
+            JSONArray array = new JSONObject(str).getJSONArray("attractions");
+
+
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = null;
+
+                jsonObject = array.getJSONObject(i);
+
+                matrixCursor.addRow(new Object[]{
+
+                        jsonObject.getString(TravelContent.Attraction.activity_type),
+                        jsonObject.getString(TravelContent.Attraction.activity_country),
+                        jsonObject.getString(TravelContent.Attraction.activity_TStart),
+                        jsonObject.getString(TravelContent.Attraction.activity_TEnd),
+                        jsonObject.getInt(TravelContent.Attraction.activity_price),
+                        jsonObject.getString(TravelContent.Attraction.activity_description),
+                        jsonObject.getLong(TravelContent.Attraction.activity_id)
+                });
+            }
+            return matrixCursor;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+ /*   @Override
     public boolean updateLecturer(ContentValues values) {
         return false;
     }
@@ -144,7 +199,7 @@ public class MySQL_DSManager implements IDSManager {
     @Override
     public boolean updateCourse(long id, ContentValues values) {
         return false;
-    }
+    }*/
 
 
     private void SetUpdate()
@@ -153,12 +208,11 @@ public class MySQL_DSManager implements IDSManager {
     }
 
     @Override
-    public boolean isUpdatet() {
-        if(updateFlag)
-        {
-            updateFlag=false;
-            return  true;
+    public boolean checkChanges() {
+        if (updateFlag) {
+            updateFlag = false;
+            return true;
         }
-        return  false;
+        return false;
     }
 }

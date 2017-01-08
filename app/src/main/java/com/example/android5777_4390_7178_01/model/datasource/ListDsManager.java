@@ -42,7 +42,7 @@ public class ListDsManager implements IDSManager {
     public void addBusiness(ContentValues contant_business){
         try
         {
-       businessList.add(new Business(contant_business.getAsLong("IdBusiness"),contant_business.getAsString("businessName"),
+       businessList.add(new Business(contant_business.getAsLong("BusinessID"),contant_business.getAsString("businessName"),
                contant_business.getAsString("AStreet"),contant_business.getAsString("ACountry"), contant_business.getAsString("ACity"),
                contant_business.getAsInteger("Phone"),contant_business.getAsString("Email"),contant_business.getAsString("WebSite")));
         Log.d("TAG", "bussines added");
@@ -69,7 +69,7 @@ public class ListDsManager implements IDSManager {
              attractionsesList.add(new Attractions(activity_type,contant_attraction.getAsString("country")
                 ,contant_attraction.getAsString("activityStart"),contant_attraction.getAsString("activityEnd"),
                      contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
-                contant_attraction.getAsLong("idBussines")
+                contant_attraction.getAsLong("IDBussines")
                       ));
             Log.d("TAG", "Attraction added");
         }
@@ -82,7 +82,6 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public Cursor getManager() {return null;}
-
     @Override
     public Cursor getBusiness() {return null;}
     @Override
@@ -92,7 +91,7 @@ public class ListDsManager implements IDSManager {
 
 
     @Override
-    public Boolean checkChanges() {
+    public boolean checkChanges() {
         if (checkUpBussines || checkUpAttraction)
         {
             checkUpBussines = false;
@@ -102,8 +101,4 @@ public class ListDsManager implements IDSManager {
         return false;
     }
 
-    @Override
-    public void reportChanges() {
-
-    }
 }

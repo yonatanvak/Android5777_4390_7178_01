@@ -23,8 +23,8 @@ public interface IDSManager {
     Cursor getBusiness();
     Cursor getAttraction();
 
-    Boolean checkChanges();
-    void reportChanges();
+    boolean checkChanges();
+//    void reportChanges();
 
     ///////////////////----seif h--/////////////
 

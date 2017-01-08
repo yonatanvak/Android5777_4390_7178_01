@@ -114,7 +114,7 @@ public class AddAttraction extends AppCompatActivity {
                 final ContentValues contentValuesAttarction = new ContentValues();
 
                 contentValuesAttarction.put("description",description.toString());
-                contentValuesAttarction.put("idBussines",idBussines.toString());
+                contentValuesAttarction.put("IDBussines",idBussines.toString());
                 contentValuesAttarction.put("country",country.toString());
                 contentValuesAttarction.put("price",price.toString());
                 contentValuesAttarction.put("activityStart",sDate.getText().toString());

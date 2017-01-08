@@ -49,7 +49,7 @@ public class TravelContent {
         static final String activity_TEnd = "activity_TEnd";
         static final String activity_price = "activity_price";
         static final String activity_description = "activity_description";
-        static final String activity_id = "activity_id";
+        static final String activity_id = "IDBussines";
         /**
          * The content:// style URI for this table
          */
