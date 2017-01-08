@@ -10,9 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.android5777_4390_7178_01.MainActivity;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
+import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 
 public class AddBusiness extends AppCompatActivity {
@@ -50,7 +50,7 @@ public class AddBusiness extends AppCompatActivity {
                     @Override
                     protected Void doInBackground(Void... params) {
                         try{
-                        getContentResolver().insert(CustomContentProvider.BUSINESS_CONTENT_URL, contentValuesAddBusiness);
+                        getContentResolver().insert(TravelContent.Business.BUSINESS_URI, contentValuesAddBusiness);
                             for (int i=0; i<11 ; i++)
                             {
                                 SystemClock.sleep(500);

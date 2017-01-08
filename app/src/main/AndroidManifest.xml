@@ -8,14 +8,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login">
+        <activity android:name=".Controller.login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Controller.MainActivity" />
         <activity android:name=".model.entities.Manager" />
 
         <provider
@@ -29,7 +29,7 @@
         <activity android:name=".Controller.AddAttraction" />
 
         <service
-            android:name=".model.MyService"
+            android:name=".model.backend.MyService"
             android:enabled="true"
             android:exported="true"></service>
     </application>

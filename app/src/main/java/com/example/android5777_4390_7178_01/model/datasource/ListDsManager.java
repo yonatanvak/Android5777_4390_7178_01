@@ -1,18 +1,16 @@
 package com.example.android5777_4390_7178_01.model.datasource;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.util.Log;
 
-import com.example.android5777_4390_7178_01.model.Activity_type;
+import com.example.android5777_4390_7178_01.model.entities.Activity_type;
 import com.example.android5777_4390_7178_01.model.backend.IDSManager;
 import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Locale;
 
 /**
  * Created by יונתן on 08/12/2016.
@@ -83,17 +81,12 @@ public class ListDsManager implements IDSManager {
     }
 
     @Override
-    public ArrayList<Manager> getManagerList() {
-        return null;
-    }
+    public Cursor getManager() {return null;}
 
     @Override
-    public ArrayList<Business> getBusinessList() {
-        return null;
-    }
-
+    public Cursor getBusiness() {return null;}
     @Override
-    public ArrayList<Attractions> getAttraction() {
+    public Cursor getAttraction() {
         return null;
     }
 

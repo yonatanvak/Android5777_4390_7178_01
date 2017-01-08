@@ -20,9 +20,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.android5777_4390_7178_01.MainActivity;
 import com.example.android5777_4390_7178_01.R;
-import com.example.android5777_4390_7178_01.model.Activity_type;
+import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
+import com.example.android5777_4390_7178_01.model.entities.Activity_type;
 import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
 
 import java.util.Calendar;
@@ -112,6 +112,7 @@ public class AddAttraction extends AppCompatActivity {
                 String type = ((Activity_type)spinner.getSelectedItem()).name();
                 Log.d("TAG","type"+type.toString());
                 final ContentValues contentValuesAttarction = new ContentValues();
+
                 contentValuesAttarction.put("description",description.toString());
                 contentValuesAttarction.put("idBussines",idBussines.toString());
                 contentValuesAttarction.put("country",country.toString());
@@ -124,7 +125,7 @@ public class AddAttraction extends AppCompatActivity {
                     @Override
                     protected Void doInBackground(Void... params) {
                         try{
-                        getContentResolver().insert(CustomContentProvider.ATTRACTION_CONTENT_URL, contentValuesAttarction);
+                        getContentResolver().insert(TravelContent.Attraction.ATTRACTION_URI, contentValuesAttarction);
                             for (int i=0; i<11 ; i++)
                             {
                                 SystemClock.sleep(500);

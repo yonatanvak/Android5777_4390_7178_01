@@ -1,6 +1,7 @@
 package com.example.android5777_4390_7178_01.model.datasource;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
@@ -18,44 +19,98 @@ import com.example.android5777_4390_7178_01.model.entities.Manager;
 import java.util.ArrayList;
 
 public class CustomContentProvider extends ContentProvider {
-    public CustomContentProvider() {
+    IDSManager manager = ManagerFactory.getDSManger("ListDsManager");
+    final String TAG = "TravelContent";
+
+    @Override
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        Log.d(TAG, "delete " + uri.toString());
+
+        return 0;
     }
 
+    @Override
+    public String getType(Uri uri) {
+
+        Log.d(TAG, "getType " + uri.toString());
+        return null;
+    }
+
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+
+        Log.d(TAG, "insert " + uri.toString());
+
+        String listName = uri.getLastPathSegment();
+        long id = -1;
+        switch (listName) {
+            case "manager":
+                manager.addManager(values);
+              //  return ContentUris.withAppendedId(uri, id);
+
+            case "business":
+                manager.addBusiness(values);
+          //      return ContentUris.withAppendedId(uri, id);
+
+            case "attraction":
+                manager.addAttraction(values);
+            //    return ContentUris.withAppendedId(uri, id);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean onCreate() {
+        Log.d(TAG, "onCreate");
+        return false;
+    }
+
+    @Override
+    public Cursor query(Uri uri, String[] projection, String selection,
+                        String[] selectionArgs, String sortOrder) {
+
+        Log.d(TAG, "query " + uri.toString());
+
+        String listName = uri.getLastPathSegment();
+
+        switch (listName) {
+            case "manager":
+                return manager.getManager();//
+
+            case "business":
+                return manager.getBusiness();//
+
+            case "attraction":
+                return manager.getAttraction();//
+
+        }
+        return null;
+    }
+
+    @Override
+    public int update(Uri uri, ContentValues values, String selection,
+                      String[] selectionArgs) {
+        Log.d(TAG, "update " + uri.toString());
+
+        return 0;
+    }
+}
+
+
+/*
     public static IDSManager dsManager = ManagerFactory.getDSManger("ListDsManager");
 
     static final String PROVIDER_NAME = "com.example.android5777_4390_7178_01.model.entities";
     //  static final String URL = "content://" + PROVIDER_NAME + "/cte";
-    public static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/manager");
-    public static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/business");
-    public static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/attraction");
+    public static final Uri MANAGER_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/Manager");
+    public static final Uri BUSINESS_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/Business");
+    public static final Uri ATTRACTION_CONTENT_URL = Uri.parse("content://" + PROVIDER_NAME + "/Attraction");
 
    // public static final String TAG= "enterTaimentContent";
-
 
     static final int URI_MANAGER = 1;
     static final int URI_BUSINESS = 2;
     static final int URI_ATTRACTIONS = 3;
-
-   /* static final String user_name = "user_name";
-    static final String user_number = "user_number";
-    static final String user_password = "user_password";
-
-    static final String business_name = "business_name";
-    static final String business_id = "business_id";
-    static final String business_street = "business_street";
-    static final String business_country = "business_country";
-    static final String business_city = "business_city";
-    static final String business_phone = "business_phone";
-    static final String business_email = "business_email";
-    static final String business_webSite = "business_webSite";
-
-    static final String activity_type = "activity_type";
-    static final String activity_country = "activity_country";
-    static final String activity_TStart = "activity_TStart";
-    static final String activity_TEnd = "activity_TEnd";
-    static final String activity_price = "activity_price";
-    static final String activity_description = "activity_description";
-    static final String activity_id = "activity_id";*/
 
     // private static HashMap <String , String> valuse;
 
@@ -159,5 +214,6 @@ public class CustomContentProvider extends ContentProvider {
         // TODO: Implement this to handle requests to update one or more rows.
         //    throw new UnsupportedOperationException("Not yet implemented");
         return 0;
-    }
-}
+    }*/
+
+

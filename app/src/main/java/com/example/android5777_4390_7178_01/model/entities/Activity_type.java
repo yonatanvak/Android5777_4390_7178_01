@@ -1,4 +1,4 @@
-package com.example.android5777_4390_7178_01.model;
+package com.example.android5777_4390_7178_01.model.entities;
 
 /**
  * Created by יונתן on 29/11/2016.

@@ -1,25 +1,17 @@
-package com.example.android5777_4390_7178_01;
+package com.example.android5777_4390_7178_01.Controller;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.example.android5777_4390_7178_01.Controller.Registery;
-import com.example.android5777_4390_7178_01.model.Activity_type;
-import com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider;
+import com.example.android5777_4390_7178_01.R;
 
 public class login extends AppCompatActivity {
 
