@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class CustomContentProvider extends ContentProvider {
     IDSManager manager = ManagerFactory.getManager();
-    final String TAG = "TravelContent";
+    final String TAG = "Travels";
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {

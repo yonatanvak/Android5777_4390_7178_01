@@ -31,7 +31,9 @@
         <service
             android:name=".model.backend.MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".Controller.AddBusinessActivity"></activity>
     </application>
 
 </manifest>
