@@ -49,7 +49,7 @@ public class MySQL_DSManager implements IDSManager {
     @Override
     public void addBusiness(ContentValues values) {
         try {
-            String result = PHPTools.POST(WEB_URL + "/Business.php", values);
+            String result = PHPTools.POST(WEB_URL + "/Businesss.php", values);
             long id = Long.parseLong(result);
             if (id > 0)
                 SetUpdate();
@@ -62,7 +62,7 @@ public class MySQL_DSManager implements IDSManager {
     @Override
     public void addAttraction(ContentValues values) {
         try {
-            String result = PHPTools.POST(WEB_URL + "/Attraction.php", values);
+            String result = PHPTools.POST(WEB_URL + "/attraction.php", values);
             long id = Long.parseLong(result);
             if (id > 0)
                 SetUpdate();
@@ -160,7 +160,7 @@ public class MySQL_DSManager implements IDSManager {
 
         MatrixCursor matrixCursor = new MatrixCursor(columns);
         try {
-            String str = PHPTools.GET(WEB_URL + "/get_Attraction.php");
+            String str = PHPTools.GET(WEB_URL + "/get_attraction.php");
             JSONArray array = new JSONObject(str).getJSONArray("attractions");
 
 

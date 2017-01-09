@@ -35,7 +35,7 @@ public class MyService extends Service {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (ManagerFactory.getDSManger("").checkChanges()) {
+                    if (ManagerFactory.getManager().checkChanges()) {
                         Log.d(TAG, "isUpdatet run ..");
                         Intent intent1 = new Intent("");
                         MyService.this.sendBroadcast(intent1);

@@ -19,7 +19,7 @@ import com.example.android5777_4390_7178_01.model.entities.Manager;
 import java.util.ArrayList;
 
 public class CustomContentProvider extends ContentProvider {
-    IDSManager manager = ManagerFactory.getDSManger("ListDsManager");
+    IDSManager manager = ManagerFactory.getManager();
     final String TAG = "TravelContent";
 
     @Override

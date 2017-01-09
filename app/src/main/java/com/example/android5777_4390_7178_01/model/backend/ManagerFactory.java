@@ -1,17 +1,6 @@
 package com.example.android5777_4390_7178_01.model.backend;
 
-import android.content.ContentValues;
-import android.content.Context;
-
-import com.example.android5777_4390_7178_01.model.backend.IDSManager;
-import com.example.android5777_4390_7178_01.model.datasource.ListDsManager;
-import com.example.android5777_4390_7178_01.model.datasource.RemoteDsManager;
-import com.example.android5777_4390_7178_01.model.entities.Activities_List;
-import com.example.android5777_4390_7178_01.model.entities.Business;
-import com.example.android5777_4390_7178_01.model.entities.Manager;
-
-import java.io.IOException;
-import java.util.ArrayList;
+import com.example.android5777_4390_7178_01.model.datasource.MySQL_DSManager;
 
 /**
  * Created by יונתן on 04/12/2016.
@@ -19,7 +8,7 @@ import java.util.ArrayList;
 
 public class ManagerFactory {
 
-     static IDSManager instance = null;
+    /* static IDSManager instance = null;
 
       public static String mode = "ListDsManager";
 
@@ -38,7 +27,7 @@ public class ManagerFactory {
         }
         return DSManager;*/
 
-        if (mode == "RemoteDsManager")
+     /*   if (mode == "RemoteDsManager")
         {
             DSManager = new ListDsManager();
            if (instance == null)
@@ -56,5 +45,14 @@ public class ManagerFactory {
 
         else return null;
 
+    }*/
+
+    static IDSManager manager = null;
+
+    public static IDSManager getManager() {
+        if (manager == null)
+            manager = new MySQL_DSManager();
+        return manager;
     }
 }
+
