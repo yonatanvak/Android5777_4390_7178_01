@@ -60,9 +60,12 @@ public class AddBusiness extends AppCompatActivity {
                         catch (Exception e) {
                             Log.d("TAG","AsyncTask bussines not good");
                         }
+                        Log.d("TAG","AsyncTask bussines not good");
                         return null;
                     }
-                };Intent intent = new Intent(AddBusiness.this , AddAttraction.class);
+                };
+                Log.d("TAG","AsyncTask bussines not good");
+                Intent intent = new Intent(AddBusiness.this , AddAttraction.class);
                 intent.putExtra("ID BUSSINES",etIdBusiness.getText().toString());
                 startActivity(intent);
             }}

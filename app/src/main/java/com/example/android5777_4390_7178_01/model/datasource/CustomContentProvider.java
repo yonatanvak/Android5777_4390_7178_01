@@ -39,16 +39,17 @@ public class CustomContentProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues values) {
 
-        Log.d(TAG, "insert " + uri.toString());
+        Log.d("TAG", "insert " + uri.toString());
 
         String listName = uri.getLastPathSegment();
-        long id = -1;
+        //long id = -1;
         switch (listName) {
             case "manager":
                 manager.addManager(values);
               //  return ContentUris.withAppendedId(uri, id);
 
             case "business":
+                Log.d("TAG", "insert maby" );
                 manager.addBusiness(values);
           //      return ContentUris.withAppendedId(uri, id);
 

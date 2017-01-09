@@ -43,9 +43,15 @@ public class ListDsManager implements IDSManager {
     public void addBusiness(ContentValues contant_business){
         try
         {
-       businessList.add(new Business(contant_business.getAsLong("BusinessID"),contant_business.getAsString("businessName"),
-               contant_business.getAsString("AStreet"),contant_business.getAsString("ACountry"), contant_business.getAsString("ACity"),
-               contant_business.getAsInteger("Phone"),contant_business.getAsString("Email"),contant_business.getAsString("WebSite")));
+            Log.d("TAG", "bussines almost added");
+       businessList.add(new Business(contant_business.getAsLong(TravelContent.Business.business_id)
+               ,contant_business.getAsString(TravelContent.Business.business_name),
+               contant_business.getAsString(TravelContent.Business.business_street)
+               ,contant_business.getAsString(TravelContent.Business.business_country),
+               contant_business.getAsString(TravelContent.Business.business_city),
+               contant_business.getAsInteger(TravelContent.Business.business_phone),
+               contant_business.getAsString(TravelContent.Business.business_email),
+               contant_business.getAsString(TravelContent.Business.business_webSite)));
         Log.d("TAG", "bussines added");
     }
     catch (Exception e) {

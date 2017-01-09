@@ -27,14 +27,14 @@ public class TravelContent {
 
     public static class Business {
 
-        static final String business_name = "business_name";
-        static final String business_id = "business_id";
-        static final String business_street = "business_street";
-        static final String business_country = "business_country";
-        static final String business_city = "business_city";
-        static final String business_phone = "business_phone";
-        static final String business_email = "business_email";
-        static final String business_webSite = "business_webSite";
+        public static final String business_name = "nameBusiness";
+        public static final String business_id = "businessID";
+        public static final String business_street = "Ad_street";
+        public static final String business_country = "Ad_country";
+        public static final String business_city = "Ad_city";
+        public static final String business_phone = "phone";
+        public static final String business_email = "Email";
+        public static final String business_webSite = "webSite";
         /**
          * The content:// style URI for this table
          */

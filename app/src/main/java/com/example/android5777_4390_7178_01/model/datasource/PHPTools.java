@@ -1,6 +1,7 @@
 package com.example.android5777_4390_7178_01.model.datasource;
 
 import android.content.ContentValues;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,11 +49,11 @@ public class PHPTools {
             postData.append('=');
             postData.append(URLEncoder.encode(String.valueOf(params.get(param)), "UTF-8"));
         }
-
+        Log.d("TAG", "insert maby2.2" );
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("POST");
-
+        Log.d("TAG", "insert maby2.3" );
         // For POST only - START
         con.setDoOutput(true);
         OutputStream os = con.getOutputStream();
@@ -60,7 +61,7 @@ public class PHPTools {
         os.flush();
         os.close();
         // For POST only - END
-
+        Log.d("TAG", "insert maby2.4" );
         int responseCode = con.getResponseCode();
         System.out.println("POST Response Code :: " + responseCode);
 
@@ -77,6 +78,8 @@ public class PHPTools {
             return response.toString();
         }
         else return "";
+
+
     }
 
 }

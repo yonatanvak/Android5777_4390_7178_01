@@ -19,7 +19,7 @@ import java.io.IOException;
 public class MySQL_DSManager implements IDSManager {
 
     private final String UserName = "benaya";
-    private final String WEB_URL = "http://"+UserName+".vlab.jct.ac.il/Academy/";
+    private final String WEB_URL = "http://"+UserName+".vlab.jct.ac.il/";
 
     private boolean updateFlag = false;
 
@@ -49,11 +49,13 @@ public class MySQL_DSManager implements IDSManager {
     @Override
     public void addBusiness(ContentValues values) {
         try {
-            String result = PHPTools.POST(WEB_URL + "/Businesss.php", values);
-            long id = Long.parseLong(result);
-            if (id > 0)
-                SetUpdate();
-            printLog("addBusiness:\n" + result);
+            Log.d("TAG", "insert maby2" );
+            String result = PHPTools.POST(WEB_URL + "/businesss.php", values);
+            Log.d("TAG", "insert maby3" );
+          //  long id = Long.parseLong(result);
+         //   if (id > 0)
+          //      SetUpdate();
+          printLog("addBusiness:\n" + result);
         } catch (IOException e) {
             printLog("addStudent Exception:\n" + e);
         }
