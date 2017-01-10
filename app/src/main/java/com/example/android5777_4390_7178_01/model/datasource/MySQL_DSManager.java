@@ -19,7 +19,7 @@ import java.io.IOException;
 public class MySQL_DSManager implements IDSManager {
 
     private final String UserName = "benaya";
-    private final String WEB_URL = "http://"+UserName+".vlab.jct.ac.il/";
+    private final String WEB_URL = "http://"+UserName+".vlab.jct.ac.il";
 
     private boolean updateFlag = false;
 
@@ -49,9 +49,7 @@ public class MySQL_DSManager implements IDSManager {
     @Override
     public void addBusiness(ContentValues values) {
         try {
-            Log.d("TAG", "insert maby2" );
             String result = PHPTools.POST(WEB_URL + "/businesss.php", values);
-            Log.d("TAG", "insert maby3" );
           //  long id = Long.parseLong(result);
          //   if (id > 0)
           //      SetUpdate();
@@ -65,9 +63,10 @@ public class MySQL_DSManager implements IDSManager {
     public void addAttraction(ContentValues values) {
         try {
             String result = PHPTools.POST(WEB_URL + "/attraction.php", values);
-            long id = Long.parseLong(result);
-            if (id > 0)
-                SetUpdate();
+         //   long id = Long.parseLong(result);
+         //   if (id > 0)
+            //    SetUpdate();
+            Log.d("TAG", "php att good");
             printLog("addAttraction:\n" +result);
         } catch (IOException e) {
             printLog("addLecturer:\n" +e);
@@ -118,31 +117,37 @@ public class MySQL_DSManager implements IDSManager {
                         TravelContent.Business.business_email,
                         TravelContent.Business.business_webSite,
                 };
+        Log.d("TAG","get business1");
 
         MatrixCursor matrixCursor = new MatrixCursor(columns);
+
         try {
             String str = PHPTools.GET(WEB_URL + "/get_business.php");
             JSONArray array = new JSONObject(str).getJSONArray("business");
-
 
             for (int i = 0; i < array.length(); i++) {
                 JSONObject jsonObject = null;
 
                 jsonObject = array.getJSONObject(i);
-
+                Log.d("TAG","get business2");
                 matrixCursor.addRow(new Object[]{
                         jsonObject.getLong(TravelContent.Business.business_id),
+                        Log.d("TAG","get business3"),
                         jsonObject.getString(TravelContent.Business.business_name),
-                        jsonObject.getBoolean(TravelContent.Business.business_street),
+                        jsonObject.getString(TravelContent.Business.business_street),
+                        Log.d("TAG","get business4"),
                         jsonObject.getString(TravelContent.Business.business_country),
-                        jsonObject.getBoolean(TravelContent.Business.business_city),
+                        jsonObject.getString(TravelContent.Business.business_city),
                         jsonObject.getInt(TravelContent.Business.business_phone),
-                        jsonObject.getBoolean(TravelContent.Business.business_email),
-                        jsonObject.getBoolean(TravelContent.Business.business_webSite),
+                        jsonObject.getString(TravelContent.Business.business_email),
+                        jsonObject.getString(TravelContent.Business.business_webSite),
+                        Log.d("TAG","get business5")
                 });
             }
+            Log.d("TAG","get business6");
             return matrixCursor;
         } catch (Exception e) {
+            Log.d("TAG","ex get business");
             return null;
         }
     }
@@ -179,11 +184,14 @@ public class MySQL_DSManager implements IDSManager {
                         jsonObject.getString(TravelContent.Attraction.activity_TEnd),
                         jsonObject.getInt(TravelContent.Attraction.activity_price),
                         jsonObject.getString(TravelContent.Attraction.activity_description),
-                        jsonObject.getLong(TravelContent.Attraction.activity_id)
+                        jsonObject.getLong(TravelContent.Attraction.activity_id),
+                        Log.d("TAG"," get att")
                 });
             }
             return matrixCursor;
         } catch (Exception e) {
+            Log.d("TAG","ex get att");
+
             return null;
         }
     }

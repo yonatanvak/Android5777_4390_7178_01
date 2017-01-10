@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.SystemClock;
@@ -19,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
@@ -113,31 +115,42 @@ public class AddAttraction extends AppCompatActivity {
                 Log.d("TAG","type"+type.toString());
                 final ContentValues contentValuesAttarction = new ContentValues();
 
-                contentValuesAttarction.put("description",description.toString());
-                contentValuesAttarction.put("IDBussines",idBussines.toString());
-                contentValuesAttarction.put("country",country.toString());
-                contentValuesAttarction.put("price",price.toString());
-                contentValuesAttarction.put("activityStart",sDate.getText().toString());
-                contentValuesAttarction.put("activityEnd",eDate.getText().toString());
-                contentValuesAttarction.put("type", String.valueOf(type.toString()));
+                contentValuesAttarction.put(TravelContent.Attraction.activity_type, String.valueOf(type.toString()));
+                contentValuesAttarction.put(TravelContent.Attraction.activity_country,country.toString());
+                contentValuesAttarction.put(TravelContent.Attraction.activity_TStart,sDate.getText().toString());
+                contentValuesAttarction.put(TravelContent.Attraction.activity_TEnd,eDate.getText().toString());
+                contentValuesAttarction.put(TravelContent.Attraction.activity_price,price.toString());
+                contentValuesAttarction.put(TravelContent.Attraction.activity_description,description.toString());
+                contentValuesAttarction.put(TravelContent.Attraction.activity_id,idBussines.toString());
 
-                new AsyncTask<Void, Void, Void>() {
+                new AsyncTask<Void, Void, Uri>() {
                     @Override
-                    protected Void doInBackground(Void... params) {
+                    protected Uri doInBackground(Void... params) {
                         try{
+                            Log.d("TAG","AsyncTask attraction good");
                         getContentResolver().insert(TravelContent.Attraction.ATTRACTION_URI, contentValuesAttarction);
+                            Log.d("TAG","AsyncTask attraction good1");
                             for (int i=0; i<11 ; i++)
                             {
                                 SystemClock.sleep(500);
                             }
-                            Log.d("TAG","AsyncTask attraction good");
+                            Log.d("TAG","AsyncTask attraction good3");
                         }
                         catch (Exception e) {
                             Log.d("TAG","AsyncTask attraction not good");
                         }
                         return null;
                     }
-                };
+
+                    @Override
+                    protected void onPostExecute(Uri uriResult) {
+                        super.onPostExecute(uriResult);
+                        Log.d("TAG","AsyncTask bussines NOT good");
+                        Toast.makeText(getBaseContext(), "insert id: " + idBussines.toString(), Toast.LENGTH_LONG).show();
+
+                        //  updateItemList(uri);
+                    }
+                }.execute();
 
                 Intent intent = new Intent(AddAttraction.this , MainActivity.class);
                 intent.putExtra("ID BUSSINES",idBussines.getText().toString());

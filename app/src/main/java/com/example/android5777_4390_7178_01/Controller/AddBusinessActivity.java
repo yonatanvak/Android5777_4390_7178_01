@@ -157,21 +157,22 @@ public class AddBusinessActivity extends Activity implements View.OnClickListene
         final Uri uri = TravelContent.Business.BUSINESS_URI;
         final ContentValues contentValuesAddBusiness = new ContentValues();
 
-        contentValuesAddBusiness.put(TravelContent.Business.business_name,etBusinessName.toString());
         contentValuesAddBusiness.put(TravelContent.Business.business_id,etIdBusiness.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_webSite,etWebSite.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_email,etEmail.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_phone,etPhone.toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_name,etBusinessName.toString());
         contentValuesAddBusiness.put(TravelContent.Business.business_street,etStreet.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_city,etCity.toString());
         contentValuesAddBusiness.put(TravelContent.Business.business_country,etCountry.toString());
-
+        contentValuesAddBusiness.put(TravelContent.Business.business_city,etCity.toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_phone,etPhone.toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_email,etEmail.toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_webSite,etWebSite.toString());
 
         new AsyncTask<Void, Void, Uri>() {
             @Override
             protected Uri doInBackground(Void... params) {
                 Log.d("TAG","AsyncTask bussines good");
-                return getContentResolver().insert(uri, contentValuesAddBusiness);
+                getContentResolver().insert(uri, contentValuesAddBusiness);
+                Log.d("TAG","content bussines good");
+                return null;
             }
 
             @Override

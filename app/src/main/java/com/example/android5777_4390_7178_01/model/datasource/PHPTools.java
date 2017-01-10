@@ -10,13 +10,14 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.Key;
+import java.util.Map;
 
 /**
  * Created by יונתן on 08/01/2017.
  */
 
 public class PHPTools {
-
     public static String GET(String url) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -49,19 +50,20 @@ public class PHPTools {
             postData.append('=');
             postData.append(URLEncoder.encode(String.valueOf(params.get(param)), "UTF-8"));
         }
-        Log.d("TAG", "insert maby2.2" );
+
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("POST");
-        Log.d("TAG", "insert maby2.3" );
+
         // For POST only - START
         con.setDoOutput(true);
         OutputStream os = con.getOutputStream();
+
         os.write(postData.toString().getBytes("UTF-8"));
         os.flush();
         os.close();
         // For POST only - END
-        Log.d("TAG", "insert maby2.4" );
+
         int responseCode = con.getResponseCode();
         System.out.println("POST Response Code :: " + responseCode);
 
@@ -78,10 +80,6 @@ public class PHPTools {
             return response.toString();
         }
         else return "";
-
-
     }
 
 }
-
-

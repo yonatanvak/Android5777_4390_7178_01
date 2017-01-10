@@ -27,7 +27,7 @@ public class TravelContent {
 
     public static class Business {
 
-        public static final String business_name = "nameBusiness";
+        public static final String business_name = "nameBusines";
         public static final String business_id = "businessID";
         public static final String business_street = "Ad_street";
         public static final String business_country = "Ad_country";
@@ -43,13 +43,13 @@ public class TravelContent {
 
     public static class Attraction {
 
-        static final String activity_type = "activity_type";
-        static final String activity_country = "activity_country";
-        static final String activity_TStart = "activity_TStart";
-        static final String activity_TEnd = "activity_TEnd";
-        static final String activity_price = "activity_price";
-        static final String activity_description = "activity_description";
-        static final String activity_id = "IDBussines";
+        public static final String activity_type = "types";
+        public static final String activity_country = "country";
+        public static final String activity_TStart = "activityStart";
+        public static final String activity_TEnd = "activityEnd";
+        public static final String activity_price = "price";
+        public static final String activity_description = "description";
+        public static final String activity_id = "IDbussiness";
         /**
          * The content:// style URI for this table
          */

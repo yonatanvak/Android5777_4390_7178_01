@@ -62,26 +62,27 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public void addAttraction(ContentValues contant_attraction) {
-       // SimpleDateFormat dateAttraction = new SimpleDateFormat("DD/MM/YYYY", Locale.ENGLISH);
+        // SimpleDateFormat dateAttraction = new SimpleDateFormat("DD/MM/YYYY", Locale.ENGLISH);
 
-      //  Calendar dateS = dateAttraction.getCalendar();
-      //  Calendar dateE = dateAttraction.getCalendar();
+        //  Calendar dateS = dateAttraction.getCalendar();
+        //  Calendar dateE = dateAttraction.getCalendar();
 
         try {
-          //  dateS.setTime(dateAttraction.parse(contant_attraction.getAsString("activityStart")));
-          //  dateE.setTime(dateAttraction.parse(contant_attraction.getAsString("activityEnd")));
+            //  dateS.setTime(dateAttraction.parse(contant_attraction.getAsString("activityStart")));
+            //  dateE.setTime(dateAttraction.parse(contant_attraction.getAsString("activityEnd")));
 
-            Activity_type activity_type= Activity_type.valueOf(contant_attraction.getAsString("type"));
+            Activity_type activity_type = Activity_type.valueOf(contant_attraction.getAsString(TravelContent.Attraction.activity_type));
 
-             attractionsesList.add(new Attractions(activity_type,contant_attraction.getAsString("country")
-                ,contant_attraction.getAsString("activityStart"),contant_attraction.getAsString("activityEnd"),
-                     contant_attraction.getAsInteger("price"),contant_attraction.getAsString("description"),
-                contant_attraction.getAsLong("IDBussines")
-                      ));
+            attractionsesList.add(new Attractions(activity_type,
+                    contant_attraction.getAsString(TravelContent.Attraction.activity_country),
+                    contant_attraction.getAsString(TravelContent.Attraction.activity_TStart),
+                    contant_attraction.getAsString(TravelContent.Attraction.activity_TEnd),
+                    contant_attraction.getAsInteger(TravelContent.Attraction.activity_price),
+                    contant_attraction.getAsString(TravelContent.Attraction.activity_description),
+                    contant_attraction.getAsLong(TravelContent.Attraction.activity_id)
+            ));
             Log.d("TAG", "Attraction added");
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             Log.d("TAG", "Attraction not added");
         }
         checkUpAttraction = true;

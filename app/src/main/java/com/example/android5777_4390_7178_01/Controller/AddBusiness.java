@@ -37,20 +37,22 @@ public class AddBusiness extends AppCompatActivity {
                 EditText   etWebSite = (EditText)findViewById( R.id.etWebSite );
 
                 final ContentValues contentValuesAddBusiness = new ContentValues();
-                contentValuesAddBusiness.put("businessName",etBusinessName.toString());
-                contentValuesAddBusiness.put("BusinessID",etIdBusiness.toString());
-                contentValuesAddBusiness.put("WebSite",etWebSite.toString());
-                contentValuesAddBusiness.put("Email",etEmail.toString());
-                contentValuesAddBusiness.put("Phone",etPhone.toString());
-                contentValuesAddBusiness.put("AStreet",etStreet.toString());
-                contentValuesAddBusiness.put("ACity",etCity.toString());
-                contentValuesAddBusiness.put("ACountry",etCountry.toString());
+
+                contentValuesAddBusiness.put(TravelContent.Business.business_name,etBusinessName.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_id,etIdBusiness.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_webSite,etWebSite.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_email,etEmail.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_phone,etPhone.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_street,etStreet.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_city,etCity.toString());
+                contentValuesAddBusiness.put(TravelContent.Business.business_country,etCountry.toString());
 
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {
                         try{
                         getContentResolver().insert(TravelContent.Business.BUSINESS_URI, contentValuesAddBusiness);
+                            Log.d("TAG","AsyncTask bussines not good3");
                             for (int i=0; i<11 ; i++)
                             {
                                 SystemClock.sleep(500);
@@ -60,11 +62,12 @@ public class AddBusiness extends AppCompatActivity {
                         catch (Exception e) {
                             Log.d("TAG","AsyncTask bussines not good");
                         }
-                        Log.d("TAG","AsyncTask bussines not good");
+
                         return null;
                     }
-                };
-                Log.d("TAG","AsyncTask bussines not good");
+                }.execute();
+                
+                Log.d("TAG","AsyncTask bussines not good2");
                 Intent intent = new Intent(AddBusiness.this , AddAttraction.class);
                 intent.putExtra("ID BUSSINES",etIdBusiness.getText().toString());
                 startActivity(intent);
