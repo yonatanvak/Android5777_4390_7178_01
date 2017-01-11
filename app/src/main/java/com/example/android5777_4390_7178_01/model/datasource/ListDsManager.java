@@ -73,7 +73,8 @@ public class ListDsManager implements IDSManager {
 
             Activity_type activity_type = Activity_type.valueOf(contant_attraction.getAsString(TravelContent.Attraction.activity_type));
 
-            attractionsesList.add(new Attractions(activity_type,
+            attractionsesList.add(new Attractions(contant_attraction.getAsInteger("id"),
+                    activity_type,
                     contant_attraction.getAsString(TravelContent.Attraction.activity_country),
                     contant_attraction.getAsString(TravelContent.Attraction.activity_TStart),
                     contant_attraction.getAsString(TravelContent.Attraction.activity_TEnd),

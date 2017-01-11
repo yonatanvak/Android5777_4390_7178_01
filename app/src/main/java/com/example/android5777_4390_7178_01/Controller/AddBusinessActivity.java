@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
@@ -25,23 +26,17 @@ import android.widget.Toast;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
 
-public class AddBusinessActivity extends Activity implements View.OnClickListener {
+import static com.example.android5777_4390_7178_01.model.entities.Business.IDbusines;
 
-    private EditText idEditText;
-    private EditText nameEditText;
-    private EditText minGradeEditText;
-    private CheckBox requiredCheckBox;
-    private Spinner lecturerIdSpinner;
-    private Button addCourseButton;
-    private ListView itemListView;
-    private TextView loadingTextView;
+public class AddBusinessActivity extends Activity implements View.OnClickListener {
 
     private EditText etStreet;
     private EditText etCity;
     private EditText etCountry;
     private EditText  etEmail;
     private EditText  etPhone;
-    private EditText  etIdBusiness;
+  //  private TextView  etIdBusiness;
+    private EditText etIdBusiness;
     private EditText etBusinessName;
     private EditText   etWebSite;
     private Button addBusinessButton;
@@ -57,6 +52,9 @@ public class AddBusinessActivity extends Activity implements View.OnClickListene
     public void onClick(View v) {
         if (v == addBusinessButton) {
             addBusiness();
+            Intent intent = new Intent(AddBusinessActivity.this , AddAttractionActivity.class);
+            intent.putExtra("ID BUSSINES",etIdBusiness.getText().toString());
+            startActivity(intent);
         }
     }
 
@@ -71,6 +69,11 @@ public class AddBusinessActivity extends Activity implements View.OnClickListene
         etWebSite = (EditText) findViewById(R.id.etWebSite);
         addBusinessButton = (Button) findViewById(R.id.buttonAddBusines);
         addBusinessButton.setOnClickListener(this);
+
+        // etIdBusiness = (TextView) findViewById(R.id.textViewIDBusiness);
+        //IDbusines++;
+        // etIdBusiness = (TextView) findViewById(R.id.textViewIDBusiness);
+        // etIdBusiness.setText(String.valueOf(IDbusines));
 
         final Uri uri = TravelContent.Business.BUSINESS_URI;
     }
@@ -157,14 +160,14 @@ public class AddBusinessActivity extends Activity implements View.OnClickListene
         final Uri uri = TravelContent.Business.BUSINESS_URI;
         final ContentValues contentValuesAddBusiness = new ContentValues();
 
-        contentValuesAddBusiness.put(TravelContent.Business.business_id,etIdBusiness.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_name,etBusinessName.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_street,etStreet.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_country,etCountry.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_city,etCity.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_phone,etPhone.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_email,etEmail.toString());
-        contentValuesAddBusiness.put(TravelContent.Business.business_webSite,etWebSite.toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_id,etIdBusiness.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_name,etBusinessName.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_street,etStreet.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_country,etCountry.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_city,etCity.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_phone,etPhone.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_email,etEmail.getText().toString());
+        contentValuesAddBusiness.put(TravelContent.Business.business_webSite,etWebSite.getText().toString());
 
         new AsyncTask<Void, Void, Uri>() {
             @Override
@@ -179,8 +182,7 @@ public class AddBusinessActivity extends Activity implements View.OnClickListene
             protected void onPostExecute(Uri uriResult) {
                 super.onPostExecute(uriResult);
                 Log.d("TAG","AsyncTask bussines NOT good");
-                    Toast.makeText(getBaseContext(), "insert id: " + etIdBusiness.toString(), Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(getBaseContext(), "insert id: " + etIdBusiness.getText().toString(), Toast.LENGTH_LONG).show();
               //  updateItemList(uri);
             }
         }.execute();

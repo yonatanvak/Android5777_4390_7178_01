@@ -142,12 +142,12 @@ public class AddAttractionActivity extends Activity implements View.OnClickListe
         final ContentValues contentValuesAttarction = new ContentValues();
 
         contentValuesAttarction.put(TravelContent.Attraction.activity_type, String.valueOf(type.toString()));
-        contentValuesAttarction.put(TravelContent.Attraction.activity_country,country.toString());
+        contentValuesAttarction.put(TravelContent.Attraction.activity_country,country.getText().toString());
         contentValuesAttarction.put(TravelContent.Attraction.activity_TStart,sDate.getText().toString());
         contentValuesAttarction.put(TravelContent.Attraction.activity_TEnd,eDate.getText().toString());
-        contentValuesAttarction.put(TravelContent.Attraction.activity_price,price.toString());
-        contentValuesAttarction.put(TravelContent.Attraction.activity_description,description.toString());
-        contentValuesAttarction.put(TravelContent.Attraction.activity_id,idBussines.toString());
+        contentValuesAttarction.put(TravelContent.Attraction.activity_price,price.getText().toString());
+        contentValuesAttarction.put(TravelContent.Attraction.activity_description,description.getText().toString());
+        contentValuesAttarction.put(TravelContent.Attraction.activity_id,idBussines.getText().toString());
 
 
         new AsyncTask<Void, Void, Uri>() {
@@ -163,7 +163,7 @@ public class AddAttractionActivity extends Activity implements View.OnClickListe
             protected void onPostExecute(Uri uriResult) {
                 super.onPostExecute(uriResult);
                 Log.d("TAG","AsyncTask Attarction NOT good");
-                Toast.makeText(getBaseContext(), "insert id: " + idBussines.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "insert id: " + idBussines.getText().toString(), Toast.LENGTH_LONG).show();
 
                 //  updateItemList(uri);
             }

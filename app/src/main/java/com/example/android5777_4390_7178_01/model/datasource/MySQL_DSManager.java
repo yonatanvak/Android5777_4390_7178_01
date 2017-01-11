@@ -52,7 +52,7 @@ public class MySQL_DSManager implements IDSManager {
             String result = PHPTools.POST(WEB_URL + "/businesss.php", values);
           //  long id = Long.parseLong(result);
          //   if (id > 0)
-          //      SetUpdate();
+               SetUpdate();
           printLog("addBusiness:\n" + result);
         } catch (IOException e) {
             printLog("addStudent Exception:\n" + e);
@@ -65,7 +65,7 @@ public class MySQL_DSManager implements IDSManager {
             String result = PHPTools.POST(WEB_URL + "/attraction.php", values);
          //   long id = Long.parseLong(result);
          //   if (id > 0)
-            //    SetUpdate();
+             SetUpdate();
             Log.d("TAG", "php att good");
             printLog("addAttraction:\n" +result);
         } catch (IOException e) {
