@@ -12,9 +12,10 @@
         android:label="Travel Hager"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.login">
+        <activity android:name=".model.entities.screen_open">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,7 +48,8 @@
             android:exported="true" />
 
         <activity android:name=".Controller.AddBusinessActivity" />
-        <activity android:name=".Controller.AddAttractionActivity"></activity>
+        <activity android:name=".Controller.AddAttractionActivity" />
+        <activity android:name=".Controller.login"></activity>
     </application>
 
 </manifest>

@@ -132,16 +132,13 @@ public class MySQL_DSManager implements IDSManager {
                 Log.d("TAG","get business2");
                 matrixCursor.addRow(new Object[]{
                         jsonObject.getLong(TravelContent.Business.business_id),
-                        Log.d("TAG","get business3"),
                         jsonObject.getString(TravelContent.Business.business_name),
                         jsonObject.getString(TravelContent.Business.business_street),
-                        Log.d("TAG","get business4"),
                         jsonObject.getString(TravelContent.Business.business_country),
                         jsonObject.getString(TravelContent.Business.business_city),
                         jsonObject.getInt(TravelContent.Business.business_phone),
                         jsonObject.getString(TravelContent.Business.business_email),
-                        jsonObject.getString(TravelContent.Business.business_webSite),
-                        Log.d("TAG","get business5")
+                        jsonObject.getString(TravelContent.Business.business_webSite)
                 });
             }
             Log.d("TAG","get business6");
@@ -156,6 +153,7 @@ public class MySQL_DSManager implements IDSManager {
     public Cursor getAttraction() {
         String[] columns = new String[]
                 {
+                        TravelContent.Attraction.ID_activity,
                         TravelContent.Attraction.activity_type,
                         TravelContent.Attraction.activity_country,
                         TravelContent.Attraction.activity_TStart,
@@ -177,15 +175,16 @@ public class MySQL_DSManager implements IDSManager {
                 jsonObject = array.getJSONObject(i);
 
                 matrixCursor.addRow(new Object[]{
-
+                        jsonObject.getString(TravelContent.Attraction.ID_activity),
                         jsonObject.getString(TravelContent.Attraction.activity_type),
                         jsonObject.getString(TravelContent.Attraction.activity_country),
                         jsonObject.getString(TravelContent.Attraction.activity_TStart),
                         jsonObject.getString(TravelContent.Attraction.activity_TEnd),
                         jsonObject.getInt(TravelContent.Attraction.activity_price),
                         jsonObject.getString(TravelContent.Attraction.activity_description),
-                        jsonObject.getLong(TravelContent.Attraction.activity_id),
-                        Log.d("TAG"," get att")
+                        Log.d("TAG"," get att"),
+                        jsonObject.getLong(TravelContent.Attraction.activity_id)
+
                 });
             }
             return matrixCursor;

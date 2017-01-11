@@ -28,7 +28,7 @@ public class TravelContent {
     public static class Business {
 
         public static final String business_name = "nameBusines";
-        public static final String business_id = "businessID";
+        public static final String business_id = "_id";
         public static final String business_street = "Ad_street";
         public static final String business_country = "Ad_country";
         public static final String business_city = "Ad_city";
@@ -42,7 +42,7 @@ public class TravelContent {
     }
 
     public static class Attraction {
-
+        public static final String ID_activity = "_id";
         public static final String activity_type = "types";
         public static final String activity_country = "country";
         public static final String activity_TStart = "activityStart";

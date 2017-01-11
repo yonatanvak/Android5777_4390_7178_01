@@ -26,7 +26,7 @@ import android.widget.Toast;
 import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
 
-import static com.example.android5777_4390_7178_01.model.entities.Business.IDbusines;
+
 
 public class AddBusinessActivity extends Activity implements View.OnClickListener {
 

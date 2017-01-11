@@ -13,7 +13,7 @@ public class Business extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public static long IDbusines;
+    private long IDbusines;
     private String nameBusines;
     private String Ad_street;
     private String Ad_country;

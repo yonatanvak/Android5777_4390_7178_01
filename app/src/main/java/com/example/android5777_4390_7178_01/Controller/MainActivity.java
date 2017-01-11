@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     protected Cursor doInBackground(Void... params) {
                         Log.d("TAG", "main check2");
-                        return getContentResolver().query(TravelContent.Attraction.ATTRACTION_URI, null, null, null, null);
+                        return getContentResolver().query(TravelContent.Business.BUSINESS_URI, null, null, null, null);
                     }
 
                     @Override
