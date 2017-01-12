@@ -9,39 +9,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android5777_4390_7178_01.model.entities.screen_open">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        app:srcCompat="@mipmap/ic_launcher" />
+    tools:context="com.example.android5777_4390_7178_01.model.entities.screen_open"
+    android:background="@drawable/images"
+    >
 
     <TextView
-        android:text="WELCOME!!!"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:id="@+id/textView6"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:fontFamily="casual"
-        android:textColor="@android:color/holo_orange_dark" />
-
-    <TextView
-        android:text="Loading...."
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="36dp"
+    android:text="Loading...."
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
         android:id="@+id/textView9"
-        android:fontFamily="sans-serif"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/background_dark" />
+    android:fontFamily="sans-serif-smallcaps"
+    android:textAlignment="center"
+    android:textSize="30sp"
+    android:textStyle="normal|bold"
+    android:textColor="@android:color/background_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:typeface="sans" />
+
+
 </RelativeLayout>
