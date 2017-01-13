@@ -55,7 +55,7 @@ public class MySQL_DSManager implements IDSManager {
                SetUpdate();
           printLog("addBusiness:\n" + result);
         } catch (IOException e) {
-            printLog("addStudent Exception:\n" + e);
+            printLog("addBusiness Exception:\n" + e);
         }
     }
 
@@ -66,10 +66,10 @@ public class MySQL_DSManager implements IDSManager {
          //   long id = Long.parseLong(result);
          //   if (id > 0)
              SetUpdate();
-            Log.d("TAG", "php att good");
+           // Log.d("TAG", "php att good");
             printLog("addAttraction:\n" +result);
         } catch (IOException e) {
-            printLog("addLecturer:\n" +e);
+            printLog("addAttraction:\n" +e);
         }
     }
 
@@ -175,22 +175,19 @@ public class MySQL_DSManager implements IDSManager {
                 jsonObject = array.getJSONObject(i);
 
                 matrixCursor.addRow(new Object[]{
-                        jsonObject.getString(TravelContent.Attraction.ID_activity),
+                        jsonObject.getInt(TravelContent.Attraction.ID_activity),
                         jsonObject.getString(TravelContent.Attraction.activity_type),
                         jsonObject.getString(TravelContent.Attraction.activity_country),
                         jsonObject.getString(TravelContent.Attraction.activity_TStart),
                         jsonObject.getString(TravelContent.Attraction.activity_TEnd),
                         jsonObject.getInt(TravelContent.Attraction.activity_price),
                         jsonObject.getString(TravelContent.Attraction.activity_description),
-                        Log.d("TAG"," get att"),
                         jsonObject.getLong(TravelContent.Attraction.activity_id)
-
                 });
             }
             return matrixCursor;
         } catch (Exception e) {
             Log.d("TAG","ex get att");
-
             return null;
         }
     }

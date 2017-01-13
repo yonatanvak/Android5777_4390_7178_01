@@ -63,7 +63,7 @@ public class login extends AppCompatActivity {
                         Log.d("TAG", "not remember");
                     }
                     Intent intent = new Intent(login.this, MainActivity.class);
-                    intent.putExtra("USERNAME", name);
+                    intent.putExtra("USERNAME", manegerUser.getText().toString());
                     startActivity(intent);
                 } else {
                     AlertDialog.Builder problem = new AlertDialog.Builder(login.this);

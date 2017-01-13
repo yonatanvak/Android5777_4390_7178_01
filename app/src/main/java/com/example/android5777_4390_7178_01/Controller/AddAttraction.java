@@ -40,7 +40,7 @@ public class AddAttraction extends AppCompatActivity {
 
         final Spinner spinner = (Spinner) findViewById(R.id.spinnerAttraction);
         spinner.setAdapter(new ArrayAdapter<Activity_type>(this, android.R.layout.simple_spinner_item, Activity_type.values()));
-
+/*
         final Button sDate = (Button) findViewById(R.id.buttonSdate);
         final Button eDate = (Button) findViewById(R.id.buttonEdate);
         final Calendar c = Calendar.getInstance();
@@ -156,7 +156,8 @@ public class AddAttraction extends AppCompatActivity {
                 intent.putExtra("ID BUSSINES",idBussines.getText().toString());
                 startActivity(intent);
             }}
-        );}
+        );}*/
+    }
 }
 
 

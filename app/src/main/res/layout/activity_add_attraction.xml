@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_add_attraction"
     android:layout_width="match_parent"
@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.example.android5777_4390_7178_01.Controller.AddAttraction">
 
     <TextView
@@ -21,6 +22,122 @@
         android:textSize="24sp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/holo_orange_dark" />
+
+    <TextView
+        android:text="ID Bussines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvidb"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvidb"
+        android:layout_toRightOf="@+id/tvidb"
+        android:id="@+id/tVID"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Activity Type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textSize="14sp"
+        android:fontFamily="casual"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/tvidb"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerAttraction"
+        android:textSize="18sp"
+        android:minWidth="18dp"
+        android:layout_alignTop="@+id/etPrice"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/etCountry"
+        android:hint="Country"
+        android:layout_below="@+id/textView4"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/etDescription"
+        android:hint="Description"
+        android:layout_below="@+id/etCountry"
+        />
+
+    <TextView
+        android:text="Start Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textStyle="normal|bold"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:fontFamily="casual"
+        android:layout_below="@+id/etDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
+
+    <com.example.android5777_4390_7178_01.Controller.HelpDate
+        android:id="@+id/Sdate"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:allowUndo="false"
+        android:layout_above="@+id/etPrice"
+        android:layout_marginBottom="24dp" />
+    <TextView
+        android:text="End Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textStyle="normal|bold"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:fontFamily="casual"
+        android:layout_below="@+id/etDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
+
+    <com.example.android5777_4390_7178_01.Controller.HelpDate
+        android:id="@+id/Edate"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:allowUndo="false"
+        android:layout_above="@+id/etPrice"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/etPrice"
+        android:textAlignment="center"
+        android:hint="Price"
+        android:layout_above="@+id/buttonAddAtraction"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Add"
@@ -36,128 +153,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etDescription"
-        android:hint="Description"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+</LinearLayout>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerAttraction"
-        android:textSize="18sp"
-        android:minWidth="18dp"
-        android:layout_above="@+id/etCountry"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp" />
 
-    <TextView
-        android:text="Activity Type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textSize="18sp"
-        android:fontFamily="casual"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="normal|bold"
-        android:layout_above="@+id/spinnerAttraction"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="11dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etCountry"
-        android:hint="Country"
-        android:layout_above="@+id/etDescription"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Select Dates"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:textColor="@android:color/holo_orange_dark"
-        android:fontFamily="casual"
-        android:textAlignment="textStart"
-        android:layout_below="@+id/etDescription"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
-
-    <Button
-        android:text="Date Start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonSdate"
-        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
-        android:layout_above="@+id/etPrice"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="12dp"
-        android:textAllCaps="false"
-        android:textSize="18sp" />
-
-    <Button
-        android:text="Date end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonEdate"
-        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:layout_alignBaseline="@+id/buttonSdate"
-        android:layout_alignBottom="@+id/buttonSdate"
-        android:layout_alignRight="@+id/etPrice"
-        android:layout_alignEnd="@+id/etPrice"
-        android:layout_marginRight="18dp"
-        android:layout_marginEnd="18dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/etPrice"
-        android:textAlignment="center"
-        android:hint="Price"
-        android:layout_above="@+id/buttonAddAtraction"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="ID Bussines"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvidb"
-        android:layout_above="@+id/textView8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="25dp"
-        android:layout_toLeftOf="@+id/buttonEdate"
-        android:layout_toStartOf="@+id/buttonEdate"
-        android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tvidb"
-        android:layout_toRightOf="@+id/tvidb"
-        android:id="@+id/tVID"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="18sp"
-        android:textStyle="normal|bold" />
-</RelativeLayout>

@@ -1,5 +1,7 @@
 package com.example.android5777_4390_7178_01.model.entities;
 
+import java.util.Date;
+
 /**
  * Created by יונתן on 22/12/2016.
  */
@@ -9,13 +11,13 @@ public class Attractions {
     private int idActivity;
     private Activity_type types;
     private String country;
-    private String activityStart;
-    private String activityEnd;
+    private Date activityStart;
+    private Date activityEnd;
     private int price;
     private String description;
     private long IDbusines;
 
-    public  Attractions(int idActivity, Activity_type types, String country, String activityStart, String activityEnd,
+    public  Attractions(int idActivity, Activity_type types, String country,Date  activityStart, Date  activityEnd,
                         int price, String description, Long IDbusiness) {
         this.idActivity = idActivity;
         this.types = types;
@@ -53,19 +55,19 @@ public class Attractions {
         this.country = country;
     }
 
-    public String getActivityStart() {
+    public Date  getActivityStart() {
         return activityStart;
     }
 
-    public void setActivityStart(String activityStart) {
+    public void setActivityStart(Date  activityStart) {
         this.activityStart = activityStart;
     }
 
-    public String getActivityEnd() {
+    public Date  getActivityEnd() {
         return activityEnd;
     }
 
-    public void setActivityEnd(String activityEnd) {
+    public void setActivityEnd(Date  activityEnd) {
         this.activityEnd = activityEnd;
     }
 

@@ -11,7 +11,11 @@ import com.example.android5777_4390_7178_01.model.entities.Attractions;
 import com.example.android5777_4390_7178_01.model.entities.Business;
 import com.example.android5777_4390_7178_01.model.entities.Manager;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by יונתן on 08/12/2016.
@@ -64,20 +68,17 @@ public class ListDsManager implements IDSManager {
     public void addAttraction(ContentValues contant_attraction) {
         // SimpleDateFormat dateAttraction = new SimpleDateFormat("DD/MM/YYYY", Locale.ENGLISH);
 
-        //  Calendar dateS = dateAttraction.getCalendar();
-        //  Calendar dateE = dateAttraction.getCalendar();
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // like MySQL Format
+        String dateStart = contant_attraction.getAsString(TravelContent.Attraction.activity_TStart);
+        String dateEnd = contant_attraction.getAsString(TravelContent.Attraction.activity_TEnd);
         try {
-            //  dateS.setTime(dateAttraction.parse(contant_attraction.getAsString("activityStart")));
-            //  dateE.setTime(dateAttraction.parse(contant_attraction.getAsString("activityEnd")));
-
             Activity_type activity_type = Activity_type.valueOf(contant_attraction.getAsString(TravelContent.Attraction.activity_type));
 
-            attractionsesList.add(new Attractions(contant_attraction.getAsInteger("id"),
+            attractionsesList.add(new Attractions(contant_attraction.getAsInteger("_id"),
                     activity_type,
                     contant_attraction.getAsString(TravelContent.Attraction.activity_country),
-                    contant_attraction.getAsString(TravelContent.Attraction.activity_TStart),
-                    contant_attraction.getAsString(TravelContent.Attraction.activity_TEnd),
+                    dateFormat.parse(dateStart),
+                    dateFormat.parse(dateEnd),
                     contant_attraction.getAsInteger(TravelContent.Attraction.activity_price),
                     contant_attraction.getAsString(TravelContent.Attraction.activity_description),
                     contant_attraction.getAsLong(TravelContent.Attraction.activity_id)

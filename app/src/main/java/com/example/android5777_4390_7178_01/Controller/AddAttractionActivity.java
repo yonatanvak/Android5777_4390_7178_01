@@ -25,7 +25,10 @@ import com.example.android5777_4390_7178_01.R;
 import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
 import com.example.android5777_4390_7178_01.model.entities.Activity_type;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import static com.example.android5777_4390_7178_01.R.id.spinner;
 
@@ -38,8 +41,8 @@ public class AddAttractionActivity extends Activity implements View.OnClickListe
     private Spinner spinner;
     private TextView idBussines;
     private String type;
-    private Button sDate;
-    private Button eDate;
+    private HelpDate sDate;
+    private HelpDate eDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +63,9 @@ public class AddAttractionActivity extends Activity implements View.OnClickListe
         spinner = (Spinner) findViewById(R.id.spinnerAttraction);
         spinner.setAdapter(new ArrayAdapter<Activity_type>(this, android.R.layout.simple_spinner_item, Activity_type.values()));
 
-        sDate = (Button) findViewById(R.id.buttonSdate);
-        eDate = (Button) findViewById(R.id.buttonEdate);
+/*
+        // sDate = (Button) findViewById(R.id.buttonSdate);
+        //  eDate = (Button) findViewById(R.id.buttonEdate);
         final Calendar c = Calendar.getInstance();
         final int mYear = c.get(Calendar.YEAR);
         final int mMonth = c.get(Calendar.MONTH);
@@ -117,13 +121,13 @@ public class AddAttractionActivity extends Activity implements View.OnClickListe
                     }
 
                 }
-        );
+        );*/
 
+        sDate = (HelpDate) findViewById(R.id.Sdate);
+        eDate = (HelpDate) findViewById(R.id.Edate);
         description = (EditText)findViewById( R.id.etDescription );
         country = (EditText)findViewById( R.id.etCountry );
         price = (EditText)findViewById( R.id.etPrice );
-        //  EditText  startDate = (EditText)findViewById( R.id.etEndDate);
-        //   EditText  endDate = (EditText)findViewById( R.id.etEndDate);
         type = ((Activity_type)spinner.getSelectedItem()).name();
         Log.d("TAG","type"+type.toString());
         addAttractionButton = (Button) findViewById(R.id.buttonAddAtraction);
@@ -141,14 +145,19 @@ public class AddAttractionActivity extends Activity implements View.OnClickListe
 
         final ContentValues contentValuesAttarction = new ContentValues();
 
+        Date SDate = sDate.getDate();
+        Date EDate = eDate.getDate();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // like MySQL Format
+        String SdateString = dateFormat.format(SDate);
+        String EdateString = dateFormat.format(EDate);
+
         contentValuesAttarction.put(TravelContent.Attraction.activity_type, String.valueOf(type.toString()));
         contentValuesAttarction.put(TravelContent.Attraction.activity_country,country.getText().toString());
-        contentValuesAttarction.put(TravelContent.Attraction.activity_TStart,sDate.getText().toString());
-        contentValuesAttarction.put(TravelContent.Attraction.activity_TEnd,eDate.getText().toString());
+        contentValuesAttarction.put(TravelContent.Attraction.activity_TStart,SdateString);
+        contentValuesAttarction.put(TravelContent.Attraction.activity_TEnd,EdateString);
         contentValuesAttarction.put(TravelContent.Attraction.activity_price,price.getText().toString());
         contentValuesAttarction.put(TravelContent.Attraction.activity_description,description.getText().toString());
         contentValuesAttarction.put(TravelContent.Attraction.activity_id,idBussines.getText().toString());
-
 
         new AsyncTask<Void, Void, Uri>() {
             @Override

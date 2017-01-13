@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         s.setText(getIntent().getStringExtra("USERNAME"));
 
 
-
         findViewById(R.id.buttonADDB).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +42,46 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentAddAtraction = new Intent(MainActivity.this, AddAttractionActivity.class);
                 startActivity(intentAddAtraction);
+            }
+        });
+
+        findViewById(R.id.buttonGetAtt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Spinner lecturerIdSpinner = (Spinner) findViewById(R.id.spinnerGetAtt);
+                lecturerIdSpinner.setEnabled(false);
+
+                new AsyncTask<Void, Void, Cursor>() {
+                    @Override
+                    protected Cursor doInBackground(Void... params) {
+                        Log.d("TAG", "main check2");
+                        return getContentResolver().query(TravelContent.Attraction.ATTRACTION_URI, null, null, null, null);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Cursor cursor) {
+                        super.onPostExecute(cursor);
+                        CursorAdapter adapter = new CursorAdapter(MainActivity.this, cursor) {
+                            @Override
+                            public View newView(Context context, Cursor cursor, ViewGroup parent) {
+                                TextView tv = new TextView(context);
+                                tv.setTextSize(20);
+                                tv.setTextColor(Color.GREEN);
+                                return tv;
+                            }
+
+                            @Override
+                            public void bindView(View view, Context context, Cursor cursor) {
+                                TextView tv = (TextView) view;
+                                tv.setText("[" + cursor.getString(0) + "]  " + cursor.getString(1));
+                            }
+                        };
+                        Log.d("TAG", "main check3");
+
+                        lecturerIdSpinner.setAdapter(adapter);
+                        lecturerIdSpinner.setEnabled(true);
+                    }
+                }.execute();
             }
         });
 
@@ -66,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public View newView(Context context, Cursor cursor, ViewGroup parent) {
                                 TextView tv = new TextView(context);
-                                tv.setTextSize(15);
-                                tv.setTextColor(Color.BLUE);
+                                tv.setTextSize(20);
+                                tv.setTextColor(Color.GREEN);
                                 return tv;
                             }
 
