@@ -41,27 +41,29 @@ public class ListDsManager implements IDSManager {
         catch (Exception e) {
             Log.d("TAG", "user not added");
         }
-        }
+    }
 
     @Override
     public void addBusiness(ContentValues contant_business){
         try
         {
             Log.d("TAG", "bussines almost added");
-       businessList.add(new Business(contant_business.getAsLong(TravelContent.Business.business_id)
+      /* businessList.add(new Business(contant_business.getAsLong(TravelContent.Business.business_id)
                ,contant_business.getAsString(TravelContent.Business.business_name),
                contant_business.getAsString(TravelContent.Business.business_street)
                ,contant_business.getAsString(TravelContent.Business.business_country),
                contant_business.getAsString(TravelContent.Business.business_city),
                contant_business.getAsInteger(TravelContent.Business.business_phone),
                contant_business.getAsString(TravelContent.Business.business_email),
-               contant_business.getAsString(TravelContent.Business.business_webSite)));
-        Log.d("TAG", "bussines added");
-    }
-    catch (Exception e) {
-        Log.d("TAG", "bussines not added");
-    }
-        checkUpBussines = true;
+               contant_business.getAsString(TravelContent.Business.business_webSite)));*/
+            Business buss = TravelContent.ContentValuesToBusiness(contant_business);
+            businessList.add(buss);
+            checkUpBussines = true;
+            //  return student.getId();
+        }
+        catch (Exception e) {
+            Log.d("TAG", "bussines not added");
+        }
     }
 
     @Override
@@ -72,7 +74,7 @@ public class ListDsManager implements IDSManager {
         String dateStart = contant_attraction.getAsString(TravelContent.Attraction.activity_TStart);
         String dateEnd = contant_attraction.getAsString(TravelContent.Attraction.activity_TEnd);
         try {
-            Activity_type activity_type = Activity_type.valueOf(contant_attraction.getAsString(TravelContent.Attraction.activity_type));
+           /* Activity_type activity_type = Activity_type.valueOf(contant_attraction.getAsString(TravelContent.Attraction.activity_type));
 
             attractionsesList.add(new Attractions(contant_attraction.getAsInteger("_id"),
                     activity_type,
@@ -82,12 +84,14 @@ public class ListDsManager implements IDSManager {
                     contant_attraction.getAsInteger(TravelContent.Attraction.activity_price),
                     contant_attraction.getAsString(TravelContent.Attraction.activity_description),
                     contant_attraction.getAsLong(TravelContent.Attraction.activity_id)
-            ));
-            Log.d("TAG", "Attraction added");
+            ));*/
+            Attractions att = TravelContent.ContentValuesToAttraction(contant_attraction);
+            attractionsesList.add(att);
+            checkUpAttraction = true;
+            //    Log.d("TAG", "Attraction added");
         } catch (Exception ex) {
-            Log.d("TAG", "Attraction not added");
+            //   Log.d("TAG", "Attraction not added");
         }
-        checkUpAttraction = true;
     }
 
     @Override
@@ -115,40 +119,41 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public Cursor getBusiness(){
-    String[] columns = new String[]
-            {
-                    TravelContent.Business.business_id,
-                    TravelContent.Business.business_name,
-                    TravelContent.Business.business_street,
-                    TravelContent.Business.business_country,
-                    TravelContent.Business.business_city,
-                    TravelContent.Business.business_phone,
-                    TravelContent.Business.business_email,
-                    TravelContent.Business.business_webSite
-            };
-
-    MatrixCursor matrixCursor = new MatrixCursor(columns);
-
-    for (Business b : businessList) {
-        matrixCursor.addRow(new Object[]
+        String[] columns = new String[]
                 {
-                        b.getIDbusines(),
-                        b.getNameBusines(),
-                        b.getAd_street(),
-                        b.getAd_country(),
-                        b.getAd_city(),
-                        b.getPhone(),
-                        b.getEmail(),
-                        b.getwebSite()
-                });
-    }
+                        TravelContent.Business.business_id,
+                        TravelContent.Business.business_name,
+                        TravelContent.Business.business_street,
+                        TravelContent.Business.business_country,
+                        TravelContent.Business.business_city,
+                        TravelContent.Business.business_phone,
+                        TravelContent.Business.business_email,
+                        TravelContent.Business.business_webSite
+                };
 
-    return matrixCursor;
-}
+        MatrixCursor matrixCursor = new MatrixCursor(columns);
+
+        for (Business b : businessList) {
+            matrixCursor.addRow(new Object[]
+                    {
+                            b.getIDbusines(),
+                            b.getNameBusines(),
+                            b.getAd_street(),
+                            b.getAd_country(),
+                            b.getAd_city(),
+                            b.getPhone(),
+                            b.getEmail(),
+                            b.getwebSite()
+                    });
+        }
+
+        return matrixCursor;
+    }
     @Override
     public Cursor getAttraction() {
         String[] columns = new String[]
                 {
+                        TravelContent.Attraction.ID_activity,
                         TravelContent.Attraction.activity_type,
                         TravelContent.Attraction.activity_country,
                         TravelContent.Attraction.activity_TStart,
@@ -163,6 +168,7 @@ public class ListDsManager implements IDSManager {
         for (Attractions a : attractionsesList) {
             matrixCursor.addRow(new Object[]
                     {
+                            a.getIdActivity(),
                             a.getTypes(),
                             a.getCountry(),
                             a.getActivityEnd(),

@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/etUserN"
-        android:hint="User name"
+        android:hint="Email"
         android:fontFamily="casual"
         android:textStyle="normal|bold"
         style="@android:style/Widget.AutoCompleteTextView"
@@ -90,5 +90,19 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="21dp" />
+
+    <Button
+        android:text="Forgot your password?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textStyle="normal|bold"
+        android:onClick="buttonSign"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/buttonForgotP"
+        android:layout_marginBottom="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
