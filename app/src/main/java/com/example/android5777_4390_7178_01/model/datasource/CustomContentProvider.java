@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class CustomContentProvider extends ContentProvider {
     IDSManager manager = ManagerFactory.getManager();
+
     final String TAG = "Travels";
 
     @Override
@@ -57,6 +58,11 @@ public class CustomContentProvider extends ContentProvider {
                 manager.addAttraction(values);
                 Log.d("TAG", "content att good");
             //    return ContentUris.withAppendedId(uri, id);
+
+            case "mail":
+                MySQL_DSManager mail = new MySQL_DSManager();
+                     mail.forgotMail(values);
+                Log.d("TAG", "content mail good");
         }
         return null;
     }

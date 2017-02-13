@@ -1,7 +1,10 @@
 package com.example.android5777_4390_7178_01.Controller;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,10 +13,14 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android5777_4390_7178_01.R;
+import com.example.android5777_4390_7178_01.model.datasource.TravelContent;
 
 public class login extends AppCompatActivity {
+    private static String rememberPassword;
+    private static String rememberMail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,51 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(login.this, Registery.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.buttonForgotP).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                rememberMail = sharedPreferences.getString("NAME", "");
+                rememberPassword = sharedPreferences.getString("PASSWORD", "");
+
+                     if (manegerUser.getText().toString().equals(rememberMail)) {
+                          final ContentValues forgotMail = new ContentValues();
+                          forgotMail.put("code", rememberPassword.toString());
+                          forgotMail.put("mail", rememberMail.toString());
+
+                          final Uri Urimail = Uri.parse("content://com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider/mail");
+                          Log.d("TAG", "content mail good");
+
+                          new AsyncTask<Void, Void, Uri>() {
+                              @Override
+                              protected Uri doInBackground(Void... params) {
+                                  getContentResolver().insert(Urimail, forgotMail);
+                                  Log.d("TAG", "content mail good");
+                                  return null;
+                              }
+
+                              @Override
+                              protected void onPostExecute(Uri uriResult) {
+                                  super.onPostExecute(uriResult);
+                                  Toast.makeText(getBaseContext(), "Password sent to you by e-mail", Toast.LENGTH_LONG).show();
+                              }
+                          }.execute();
+                     }
+                else {
+                          AlertDialog.Builder problem = new AlertDialog.Builder(login.this);
+                          problem.setTitle("Error");
+                          problem.setMessage("This Email Address Not Found!");
+                          problem.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                              @Override
+                              public void onClick(DialogInterface dialog, int which) {
+                                  dialog.cancel();
+                              }
+                          });
+                          problem.show();
+                      }
             }
         });
 

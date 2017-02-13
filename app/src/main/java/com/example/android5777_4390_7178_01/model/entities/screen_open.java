@@ -18,7 +18,7 @@ public class screen_open extends AppCompatActivity {
             public void run() {
                 try {
                     synchronized (this) {
-                        wait(3000);
+                        wait(2000);
                         Intent intent = new Intent (screen_open.this,login.class);
                         startActivity(intent);
                         finish();

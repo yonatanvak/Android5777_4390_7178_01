@@ -73,6 +73,19 @@ public class MySQL_DSManager implements IDSManager {
         }
     }
 
+    public void forgotMail(ContentValues values) {
+        try {
+            String result = PHPTools.POST(WEB_URL + "/mail.php", values);
+            //   long id = Long.parseLong(result);
+            //   if (id > 0)
+            SetUpdate();
+             Log.d("TAG", "php mail good");
+            printLog("mail:\n" +result);
+        } catch (IOException e) {
+            printLog("mail:\n" +e);
+        }
+    }
+
     @Override
     public Cursor getManager() {
         try {
@@ -160,7 +173,7 @@ public class MySQL_DSManager implements IDSManager {
                         TravelContent.Attraction.activity_TEnd,
                         TravelContent.Attraction.activity_price,
                         TravelContent.Attraction.activity_description,
-                        TravelContent.Attraction.activity_id
+                    //    TravelContent.Attraction.activity_id
                 };
 
         MatrixCursor matrixCursor = new MatrixCursor(columns);
@@ -181,8 +194,8 @@ public class MySQL_DSManager implements IDSManager {
                         jsonObject.getString(TravelContent.Attraction.activity_TStart),
                         jsonObject.getString(TravelContent.Attraction.activity_TEnd),
                         jsonObject.getInt(TravelContent.Attraction.activity_price),
-                        jsonObject.getString(TravelContent.Attraction.activity_description),
-                        jsonObject.getLong(TravelContent.Attraction.activity_id)
+                        jsonObject.getString(TravelContent.Attraction.activity_description)
+                     //   jsonObject.getLong(TravelContent.Attraction.activity_id)
                 });
             }
             return matrixCursor;

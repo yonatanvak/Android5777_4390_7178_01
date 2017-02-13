@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android5777_4390_7178_01.model.entities.screen_open"
-    android:background="@drawable/images"
+    android:background="@drawable/a"
     >
 
     <TextView
@@ -18,11 +18,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
         android:id="@+id/textView9"
-    android:fontFamily="sans-serif-smallcaps"
+    android:fontFamily="cursive"
     android:textAlignment="center"
-    android:textSize="30sp"
+    android:textSize="36sp"
     android:textStyle="normal|bold"
-    android:textColor="@android:color/background_light"
+    android:textColor="@android:color/background_dark"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

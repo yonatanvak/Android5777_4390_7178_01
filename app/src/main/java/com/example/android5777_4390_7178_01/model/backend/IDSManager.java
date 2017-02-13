@@ -23,6 +23,8 @@ public interface IDSManager {
     Cursor getBusiness();
     Cursor getAttraction();
 
+   // void updateBusInListDB(Cursor b);
+
     boolean checkChanges();
 //    void reportChanges();
 

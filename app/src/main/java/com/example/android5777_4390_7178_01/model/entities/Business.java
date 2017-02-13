@@ -1,18 +1,10 @@
 package com.example.android5777_4390_7178_01.model.entities;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+/**
+ * Created by יונתן on 15/01/2017.
+ */
 
-import com.example.android5777_4390_7178_01.R;
-
-public class Business extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
+public class Business {
     private long IDbusines;
     private String nameBusines;
     private String Ad_street;
@@ -33,7 +25,7 @@ public class Business extends AppCompatActivity {
         Email = email;
         webSite = website;
     }
- public Business(){}
+    public Business(){}
 
     public long getIDbusines() {
         return IDbusines;
@@ -98,6 +90,5 @@ public class Business extends AppCompatActivity {
     public void setwebSite(String link) {
         webSite = link;
     }
-
 
 }

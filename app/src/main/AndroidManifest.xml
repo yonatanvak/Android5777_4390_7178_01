@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android5777_4390_7178_01">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,23 +25,13 @@
 
         <provider
             android:name=".model.datasource.CustomContentProvider"
-            android:authorities="com.example.android5777_4390_7178_01"
-            android:enabled="true"
-            android:exported="true" />
+            android:authorities="com.example.android5777_4390_7178_01.model.datasource.CustomContentProvider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:multiprocess="true" />
 
         <activity android:name=".Controller.Registery" />
-        <activity android:name=".Controller.AddBusiness" />
-        <activity android:name=".Controller.AddAttraction" />
 
-        <receiver
-            android:name=".model.backend.MyReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BATTERY_LOW" />
-                <action android:name="com.oshri.academy.UPDATE" />
-            </intent-filter>
-        </receiver>
 
         <service
             android:name=".model.backend.MyService"

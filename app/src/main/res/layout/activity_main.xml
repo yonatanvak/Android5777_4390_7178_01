@@ -8,15 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/b"
     tools:context="com.example.android5777_4390_7178_01.Controller.MainActivity">
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner2"
-        android:layout_below="@+id/b11111"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Welcome"
@@ -77,15 +70,27 @@
         android:layout_alignParentStart="true" />
 
     <Button
+        android:text="get all attraction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonGetAtt"
+        android:layout_marginTop="13dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
         android:text="get all business "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/b11111"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/buttonADDA"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-medium"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_below="@+id/buttonADDA"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -94,16 +99,6 @@
         android:layout_below="@+id/b11111"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="get all attraction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonGetAtt"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/spinner"
-        android:layout_centerHorizontal="true"
-        style="@style/Widget.AppCompat.Button.Colored" />
 
     <Spinner
         android:layout_width="match_parent"
