@@ -69,23 +69,6 @@ try {
     contentValueManager.put("password", password.getText().toString());
     contentValueManager.put("userNumber", numberUser);
 
-    new AsyncTask<Void, Void, Void>() {
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                getContentResolver().insert(TravelContent.Manager.MANAGER_URI, contentValueManager);
-                for (int i=0; i<11 ; i++)
-                {
-                    SystemClock.sleep(500);
-                }
-                Log.d("TAG","AsyncTask user good");
-            }
-            catch (Exception e) {
-                Log.d("TAG","AsyncTask user not good");
-            }
-            return null;
-        }
-    };
 }
 catch (Exception e)
 {
