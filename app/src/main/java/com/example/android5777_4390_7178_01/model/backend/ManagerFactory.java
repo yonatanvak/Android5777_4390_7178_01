@@ -13,7 +13,7 @@ public class ManagerFactory {
 
     public static IDSManager getManager() {
         if (manager == null)
-            manager = new ListDsManager();
+            manager = new MySQL_DSManager();
         return manager;
     }
 }

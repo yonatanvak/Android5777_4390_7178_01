@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                             public View newView(Context context, Cursor cursor, ViewGroup parent) {
                                 TextView tv = new TextView(context);
                                 tv.setTextSize(20);
-                                tv.setTextColor(Color.B);
+                                tv.setTextColor(Color.BLACK);
                                 return tv;
                             }
 

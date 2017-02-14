@@ -97,30 +97,40 @@ public class login extends AppCompatActivity {
         });
 
         findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                String name = sharedPreferences.getString("NAME", "no ");
-                String password = sharedPreferences.getString("PASSWORD", "");
 
-                if (manegerUser.getText().toString().equals(name) &&
-                        passwordUser.getText().toString().equals(password)) {
-                    if (CBremember.isChecked()) {
-                        editor.putBoolean("REMEMBER ME", true);
-                        editor.commit();
-                        Log.d("TAG", "remember");
-                    }
-                    else {
-                        editor.putBoolean("REMEMBER ME", false);
-                        editor.commit();
-                        Log.d("TAG", "not remember");
-                    }
-                    Intent intent = new Intent(login.this, MainActivity.class);
-                    intent.putExtra("USERNAME", manegerUser.getText().toString());
-                    startActivity(intent);
-                } else {
+                rememberMail = sharedPreferences.getString("NAME", "");
+                rememberPassword = sharedPreferences.getString("PASSWORD", "");
+
+                if (manegerUser.getText().toString().equals(rememberMail)) {
+                    final ContentValues forgotMail = new ContentValues();
+                    forgotMail.put("code", rememberPassword.toString());
+                    forgotMail.put("mail", rememberMail.toString());
+
+                    final Uri Urimail = Uri.parse("content://com.example.android5777_4390_7178_01/mail");
+                    Log.d("TAG", "content mail good");
+
+                    new AsyncTask<Void, Void, Uri>() {
+                        @Override
+                        protected Uri doInBackground(Void... params) {
+                            getContentResolver().insert(Urimail, forgotMail);
+                            Log.d("TAG", "content mail good");
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Uri uriResult) {
+                            super.onPostExecute(uriResult);
+                            Toast.makeText(getBaseContext(), "Password sent to you by e-mail", Toast.LENGTH_LONG).show();
+                        }
+                    }.execute();
+                }
+                else {
                     AlertDialog.Builder problem = new AlertDialog.Builder(login.this);
                     problem.setTitle("Error");
-                    problem.setMessage("Wrong username or password!");
+                    problem.setMessage("This Email Address Not Found!");
                     problem.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -129,6 +139,42 @@ public class login extends AppCompatActivity {
                     });
                     problem.show();
                 }
+            }
+        });
+
+        findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
+                                                              @Override
+                                                              public void onClick(View v) {
+                                                                  String name = sharedPreferences.getString("NAME", "no ");
+                                                                  String password = sharedPreferences.getString("PASSWORD", "");
+
+                                                                  if (manegerUser.getText().toString().equals(name) &&
+                                                                          passwordUser.getText().toString().equals(password)) {
+                                                                      if (CBremember.isChecked()) {
+                                                                          editor.putBoolean("REMEMBER ME", true);
+                                                                          editor.commit();
+                                                                          Log.d("TAG", "remember");
+                                                                      }
+                                                                      else {
+                                                                          editor.putBoolean("REMEMBER ME", false);
+                                                                          editor.commit();
+                                                                          Log.d("TAG", "not remember");
+                                                                      }
+                                                                      Intent intent = new Intent(login.this, MainActivity.class);
+                                                                      intent.putExtra("USERNAME", manegerUser.getText().toString());
+                                                                      startActivity(intent);
+                                                                  } else {
+                                                                      AlertDialog.Builder problem = new AlertDialog.Builder(login.this);
+                                                                      problem.setTitle("Error");
+                                                                      problem.setMessage("Wrong username or password!");
+                                                                      problem.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                                          @Override
+                                                                          public void onClick(DialogInterface dialog, int which) {
+                                                                              dialog.cancel();
+                                                                          }
+                                                                      });
+                                                                      problem.show();
+                                                                  }
              /*   final ContentValues maneger = new ContentValues();
                 maneger.put("nameKey", manegerUser.toString());
 
@@ -143,6 +189,9 @@ public class login extends AppCompatActivity {
                                                           }
         );
     } }
+
+
+
 
 
 
